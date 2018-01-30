@@ -38,24 +38,17 @@
 	self.layer.backgroundColor = _backgroundColor.CGColor;
 }
 
-- (BOOL)userInteractionEnabled{
-	return NO;
-}
-
-- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
-}
-
-- (BOOL)clipsToBounds{
-	return _clipsToBounds;
-}
-
-- (void)setClipsToBounds:(BOOL)clipsToBounds{
-	_clipsToBounds = clipsToBounds;
-}
-
-- (BOOL)wantsDefaultClipping{
-	// TODO:
-	return YES;
-}
+//- (BOOL)clipsToBounds{
+//	return _clipsToBounds;
+//}
+//
+//- (void)setClipsToBounds:(BOOL)clipsToBounds{
+//	_clipsToBounds = clipsToBounds;
+//}
+//
+//- (BOOL)wantsDefaultClipping{
+//	// TODO:
+//	return YES;
+//}
 
 @end

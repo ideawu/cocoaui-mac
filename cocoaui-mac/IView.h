@@ -16,9 +16,10 @@ typedef enum{
 	IEventUnhighlight  = 1<<0,
 	IEventHighlight    = 1<<1,
 	IEventClick        = 1<<2,
-	IEventTap          = IEventClick,
-	IEventChange       = 1<<3,
+	IEventDragged      = 1<<3,
 	IEventReturn       = 1<<4,
+	IEventHover        = 1<<5,
+	IEventUnhover      = 1<<6,
 }IEventType;
 
 typedef enum{
@@ -29,7 +30,7 @@ typedef enum{
 
 @class ITable;
 
-@interface IView : NSView
+@interface IView : UIView
 
 @property (nonatomic, readonly) IStyle *style;
 
@@ -82,8 +83,6 @@ typedef enum{
  * 一般不需要调用本方法, 自定义控件重写本方法.
  */
 - (void)layout;
-- (void)setNeedsLayout;
-//- (void)setNeedsDisplay;
 
 @end
 

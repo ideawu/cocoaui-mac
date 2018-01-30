@@ -104,7 +104,7 @@
 		//NSString* appid = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 		//log_debug(@"%@", appid);
 	}
-//	self.backgroundColor = [UIColor clearColor];
+	self.backgroundColor = [UIColor clearColor];
 	//self.userInteractionEnabled = NO;
 	
 	_style = [[IStyle alloc] init];
@@ -292,7 +292,7 @@
 		maskView.frame = frame;
 		
 		[self bringSubviewToFront:maskView];
-		[maskView setNeedsDisplay];
+		maskView.needsDisplay = YES;
 	}
 }
 
@@ -342,7 +342,7 @@
 		self.layer.cornerRadius = _style.borderRadius;
 	}
 	if(maskView){
-		[maskView setNeedsDisplay];
+		maskView.needsDisplay = YES;
 	}
 	[self updateBackgroundView];
 }
@@ -464,20 +464,33 @@
 
 
 - (void)mouseDown:(NSEvent *)event{
-	_mouseEvent = IEventHighlight;
 	[self fireEvent:IEventHighlight];
 }
 
 - (void)mouseUp:(NSEvent *)event{
-	if(_mouseEvent == IEventHighlight){
-		[self performSelector:@selector(fireUnhighlightEvent) withObject:nil afterDelay:0.15];
+	if(_event == IEventHighlight){
+//		[self performSelector:@selector(fireUnhighlightEvent) withObject:nil afterDelay:0.15];
+		[self fireEvent:IEventUnhighlight];
 		[self fireEvent:IEventClick];
 	}
 }
 
 - (void)mouseDragged:(NSEvent *)event{
-	_mouseEvent = IEventChange;
-	[self fireEvent:IEventUnhighlight];
+	if(_event == IEventHighlight){
+		[self fireEvent:IEventUnhighlight];
+	}
+	[self fireEvent:IEventDragged];
+}
+
+- (void)mouseMoved:(NSEvent *)event{
+}
+
+- (void)mouseEntered:(NSEvent *)event{
+	[self fireEvent:IEventHover];
+}
+
+- (void)mouseExited:(NSEvent *)event{
+	[self fireEvent:IEventUnhover];
 }
 
 @end

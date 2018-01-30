@@ -11,10 +11,6 @@
 @interface UIView : NSView
 
 @property NSColor *backgroundColor;
-@property BOOL userInteractionEnabled;
-@property BOOL clipsToBounds;
-
-- (void)setNeedsLayout;
-- (void)setNeedsDisplay;
+//@property BOOL clipsToBounds;
 
 @end

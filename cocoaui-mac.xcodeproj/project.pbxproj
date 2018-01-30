@@ -38,6 +38,7 @@
 		3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB04202090CC00DDEFE6 /* TestWindow.xib */; };
 		3196DB0C20209D8000DDEFE6 /* alex.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB0B20209D8000DDEFE6 /* alex.png */; };
 		3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */; };
+		3196DB102020A8B400DDEFE6 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE920208F5E00DDEFE6 /* UIView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -320,6 +321,7 @@
 				3196DAC620208CB700DDEFE6 /* IView.m in Sources */,
 				3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */,
 				3196DADA20208DE200DDEFE6 /* IStyle.m in Sources */,
+				3196DB102020A8B400DDEFE6 /* UIView.m in Sources */,
 				3196DADB20208DE200DDEFE6 /* IStyleSheet.m in Sources */,
 				3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */,
 				3196DAD920208DE200DDEFE6 /* ICssRule.m in Sources */,
