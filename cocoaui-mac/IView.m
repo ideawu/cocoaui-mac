@@ -104,7 +104,7 @@
 		//NSString* appid = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 		//log_debug(@"%@", appid);
 	}
-	self.backgroundColor = [UIColor clearColor];
+//	self.backgroundColor = [UIColor clearColor];
 	//self.userInteractionEnabled = NO;
 	
 	_style = [[IStyle alloc] init];
@@ -207,7 +207,7 @@
 }
 
 - (void)removeFromSuperview{
-	[super setNeedsLayout];
+	self.needsLayout = YES;
 	[super removeFromSuperview];
 	[_parent.subs removeObject:self];
 	_parent = nil;
@@ -323,12 +323,12 @@
 	_need_layout = true;
 	
 	if(self.isPrimativeView){
-		[super setNeedsLayout];
+		self.needsLayout = YES;
 	}
 	if(self.parent){
 		[self.parent setNeedsLayout];
 	}else{
-		[super setNeedsLayout];
+		self.needsLayout = YES;
 	}
 }
 
@@ -336,7 +336,7 @@
 //	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
 	//[super drawRect:rect]; // no need
 
-	self.clipsToBounds = _style.overflowHidden;
+//	self.clipsToBounds = _style.overflowHidden;
 	self.layer.backgroundColor = [_style.backgroundColor CGColor];
 	if(_style.borderRadius > 0){
 		self.layer.cornerRadius = _style.borderRadius;
@@ -385,17 +385,18 @@
 	}
 	
 	CGRect frame = _style.rect;
-//	log_debug(@"%f %f", frame.origin.y, self.superview.bounds.size.height);
-	frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
-//	log_debug(@"%f", frame.origin.y);
+	if(self.superview.class == [NSView class]){
+		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
+	}
 
 	self.frame = frame;
 	self.hidden = _style.hidden;
 	
 	[self updateMaskView];
 	[self updateBackgroundView];
-	[self setNeedsDisplay];
+	self.needsDisplay = YES;
 }
+
 
 #pragma mark - Events
 

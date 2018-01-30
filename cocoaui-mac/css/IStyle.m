@@ -635,7 +635,7 @@
 			// 可能有考虑不到的地方, 但先这么做吧.
 			if(event == _view.event){
 				_backgroundImage = img;
-				[_view setNeedsDisplay];
+				_view.needsDisplay = YES;
 			}
 		}];
 	}

@@ -23,14 +23,25 @@
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
+	IView *container = [[IView alloc] init];
+	[container.style set:@"border: 1px solid #f33;"];
+	[self.window.contentView addSubview:container];
+
+	{
+		IView *view = [[IView alloc] init];
+		[view.style set:@"width: 100; height: 100; margin: 10; border: 1px solid #000; background: #666 url(alex.png);"];
+		[view bindEvent:IEventClick handler:^(IEventType event, IView *view) {
+			log_debug(@"");
+		}];
+		[container addSubview:view];
+	}
 	
-	IView *view = [[IView alloc] init];
-	[view.style set:@"width: 100; height: 100; margin: 10 0 10 100; border: 3px solid #000; background: #666 url(alex.png);"];
-	[self.window.contentView addSubview:view];
-	
-	[view bindEvent:IEventClick handler:^(IEventType event, IView *view) {
-		log_debug(@"");
-	}];
+	{
+		IView *view = [[IView alloc] init];
+		[view.style set:@"width: 100; height: 100; margin: 10; border: 1px solid #000; background: #666 url(alex.png);"];
+		[container addSubview:view];
+	}
+
 }
 
 @end

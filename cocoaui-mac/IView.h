@@ -29,7 +29,7 @@ typedef enum{
 
 @class ITable;
 
-@interface IView : UIView
+@interface IView : NSView
 
 @property (nonatomic, readonly) IStyle *style;
 
@@ -82,6 +82,8 @@ typedef enum{
  * 一般不需要调用本方法, 自定义控件重写本方法.
  */
 - (void)layout;
+- (void)setNeedsLayout;
+//- (void)setNeedsDisplay;
 
 @end
 
