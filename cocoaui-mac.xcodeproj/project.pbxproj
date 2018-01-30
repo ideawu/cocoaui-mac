@@ -1,0 +1,549 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB720208CB700DDEFE6 /* IKitUtil.h */; };
+		3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB820208CB700DDEFE6 /* IMaskUIView.h */; };
+		3196DAC120208CB700DDEFE6 /* IKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB920208CB700DDEFE6 /* IKit.h */; };
+		3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABA20208CB700DDEFE6 /* IKitUtil.m */; };
+		3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABB20208CB700DDEFE6 /* IMaskUIView.m */; };
+		3196DAC420208CB700DDEFE6 /* IView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DABC20208CB700DDEFE6 /* IView.h */; };
+		3196DAC520208CB700DDEFE6 /* IViewInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DABD20208CB700DDEFE6 /* IViewInternal.h */; };
+		3196DAC620208CB700DDEFE6 /* IView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABE20208CB700DDEFE6 /* IView.m */; };
+		3196DAC820208CE600DDEFE6 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAC720208CE600DDEFE6 /* PrefixHeader.pch */; };
+		3196DAD720208DE200DDEFE6 /* IStyleInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DACA20208DE200DDEFE6 /* IStyleInternal.h */; };
+		3196DAD820208DE200DDEFE6 /* ICssBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DACB20208DE200DDEFE6 /* ICssBlock.h */; };
+		3196DAD920208DE200DDEFE6 /* ICssRule.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DACC20208DE200DDEFE6 /* ICssRule.m */; };
+		3196DADA20208DE200DDEFE6 /* IStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DACD20208DE200DDEFE6 /* IStyle.m */; };
+		3196DADB20208DE200DDEFE6 /* IStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DACE20208DE200DDEFE6 /* IStyleSheet.m */; };
+		3196DADC20208DE200DDEFE6 /* IFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DACF20208DE200DDEFE6 /* IFlowLayout.h */; };
+		3196DADD20208DE200DDEFE6 /* ICssDecl.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD020208DE200DDEFE6 /* ICssDecl.h */; };
+		3196DADE20208DE200DDEFE6 /* ICssRule.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD120208DE200DDEFE6 /* ICssRule.h */; };
+		3196DADF20208DE200DDEFE6 /* ICssDecl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD220208DE200DDEFE6 /* ICssDecl.m */; };
+		3196DAE020208DE200DDEFE6 /* IStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD320208DE200DDEFE6 /* IStyleSheet.h */; };
+		3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD420208DE200DDEFE6 /* IStyle.h */; };
+		3196DAE220208DE200DDEFE6 /* IFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD520208DE200DDEFE6 /* IFlowLayout.m */; };
+		3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD620208DE200DDEFE6 /* ICssBlock.m */; };
+		3196DAE720208E9B00DDEFE6 /* NSValue+.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAE520208E9B00DDEFE6 /* NSValue+.h */; };
+		3196DAEB20208F5E00DDEFE6 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE920208F5E00DDEFE6 /* UIView.m */; };
+		3196DAEC20208F5E00DDEFE6 /* UIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAEA20208F5E00DDEFE6 /* UIView.h */; };
+		3196DAF52020908E00DDEFE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAF42020908E00DDEFE6 /* AppDelegate.m */; };
+		3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3196DAF62020908E00DDEFE6 /* Assets.xcassets */; };
+		3196DAFA2020908E00DDEFE6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DAF82020908E00DDEFE6 /* MainMenu.xib */; };
+		3196DAFD2020908E00DDEFE6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAFC2020908E00DDEFE6 /* main.m */; };
+		3196DB05202090CC00DDEFE6 /* TestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB03202090CC00DDEFE6 /* TestWindow.m */; };
+		3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB04202090CC00DDEFE6 /* TestWindow.xib */; };
+		3196DB0C20209D8000DDEFE6 /* alex.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB0B20209D8000DDEFE6 /* alex.png */; };
+		3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */; };
+		3196DB0F20209EBE00DDEFE6 /* NSValue+.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE620208E9B00DDEFE6 /* NSValue+.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocoaui-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3196DAB720208CB700DDEFE6 /* IKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKitUtil.h; sourceTree = "<group>"; };
+		3196DAB820208CB700DDEFE6 /* IMaskUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMaskUIView.h; sourceTree = "<group>"; };
+		3196DAB920208CB700DDEFE6 /* IKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKit.h; sourceTree = "<group>"; };
+		3196DABA20208CB700DDEFE6 /* IKitUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKitUtil.m; sourceTree = "<group>"; };
+		3196DABB20208CB700DDEFE6 /* IMaskUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMaskUIView.m; sourceTree = "<group>"; };
+		3196DABC20208CB700DDEFE6 /* IView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IView.h; sourceTree = "<group>"; };
+		3196DABD20208CB700DDEFE6 /* IViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IViewInternal.h; sourceTree = "<group>"; };
+		3196DABE20208CB700DDEFE6 /* IView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IView.m; sourceTree = "<group>"; };
+		3196DAC720208CE600DDEFE6 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3196DACA20208DE200DDEFE6 /* IStyleInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStyleInternal.h; sourceTree = "<group>"; };
+		3196DACB20208DE200DDEFE6 /* ICssBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICssBlock.h; sourceTree = "<group>"; };
+		3196DACC20208DE200DDEFE6 /* ICssRule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICssRule.m; sourceTree = "<group>"; };
+		3196DACD20208DE200DDEFE6 /* IStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IStyle.m; sourceTree = "<group>"; };
+		3196DACE20208DE200DDEFE6 /* IStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IStyleSheet.m; sourceTree = "<group>"; };
+		3196DACF20208DE200DDEFE6 /* IFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFlowLayout.h; sourceTree = "<group>"; };
+		3196DAD020208DE200DDEFE6 /* ICssDecl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICssDecl.h; sourceTree = "<group>"; };
+		3196DAD120208DE200DDEFE6 /* ICssRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICssRule.h; sourceTree = "<group>"; };
+		3196DAD220208DE200DDEFE6 /* ICssDecl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICssDecl.m; sourceTree = "<group>"; };
+		3196DAD320208DE200DDEFE6 /* IStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStyleSheet.h; sourceTree = "<group>"; };
+		3196DAD420208DE200DDEFE6 /* IStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStyle.h; sourceTree = "<group>"; };
+		3196DAD520208DE200DDEFE6 /* IFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFlowLayout.m; sourceTree = "<group>"; };
+		3196DAD620208DE200DDEFE6 /* ICssBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICssBlock.m; sourceTree = "<group>"; };
+		3196DAE520208E9B00DDEFE6 /* NSValue+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+.h"; sourceTree = "<group>"; };
+		3196DAE620208E9B00DDEFE6 /* NSValue+.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+.m"; sourceTree = "<group>"; };
+		3196DAE920208F5E00DDEFE6 /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
+		3196DAEA20208F5E00DDEFE6 /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
+		3196DAF12020908E00DDEFE6 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3196DAF32020908E00DDEFE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3196DAF42020908E00DDEFE6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3196DAF62020908E00DDEFE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3196DAF92020908E00DDEFE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3196DAFB2020908E00DDEFE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3196DAFC2020908E00DDEFE6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3196DAFE2020908E00DDEFE6 /* Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Test.entitlements; sourceTree = "<group>"; };
+		3196DB02202090CC00DDEFE6 /* TestWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestWindow.h; sourceTree = "<group>"; };
+		3196DB03202090CC00DDEFE6 /* TestWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestWindow.m; sourceTree = "<group>"; };
+		3196DB04202090CC00DDEFE6 /* TestWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestWindow.xib; sourceTree = "<group>"; };
+		3196DB0B20209D8000DDEFE6 /* alex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alex.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3196DAA820208C7F00DDEFE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3196DAEE2020908E00DDEFE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3196DAA220208C7E00DDEFE6 = {
+			isa = PBXGroup;
+			children = (
+				3196DAAD20208C7F00DDEFE6 /* cocoaui-mac */,
+				3196DAF22020908E00DDEFE6 /* Test */,
+				3196DAAC20208C7F00DDEFE6 /* Products */,
+				3196DB092020918E00DDEFE6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3196DAAC20208C7F00DDEFE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */,
+				3196DAF12020908E00DDEFE6 /* Test.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3196DAAD20208C7F00DDEFE6 /* cocoaui-mac */ = {
+			isa = PBXGroup;
+			children = (
+				3196DAE420208E8200DDEFE6 /* cocoa */,
+				3196DAC920208DD600DDEFE6 /* css */,
+				3196DAB920208CB700DDEFE6 /* IKit.h */,
+				3196DAB720208CB700DDEFE6 /* IKitUtil.h */,
+				3196DABA20208CB700DDEFE6 /* IKitUtil.m */,
+				3196DAB820208CB700DDEFE6 /* IMaskUIView.h */,
+				3196DABB20208CB700DDEFE6 /* IMaskUIView.m */,
+				3196DABC20208CB700DDEFE6 /* IView.h */,
+				3196DABE20208CB700DDEFE6 /* IView.m */,
+				3196DABD20208CB700DDEFE6 /* IViewInternal.h */,
+				3196DAC720208CE600DDEFE6 /* PrefixHeader.pch */,
+			);
+			path = "cocoaui-mac";
+			sourceTree = "<group>";
+		};
+		3196DAC920208DD600DDEFE6 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				3196DACB20208DE200DDEFE6 /* ICssBlock.h */,
+				3196DAD620208DE200DDEFE6 /* ICssBlock.m */,
+				3196DAD020208DE200DDEFE6 /* ICssDecl.h */,
+				3196DAD220208DE200DDEFE6 /* ICssDecl.m */,
+				3196DAD120208DE200DDEFE6 /* ICssRule.h */,
+				3196DACC20208DE200DDEFE6 /* ICssRule.m */,
+				3196DACF20208DE200DDEFE6 /* IFlowLayout.h */,
+				3196DAD520208DE200DDEFE6 /* IFlowLayout.m */,
+				3196DAD420208DE200DDEFE6 /* IStyle.h */,
+				3196DACD20208DE200DDEFE6 /* IStyle.m */,
+				3196DACA20208DE200DDEFE6 /* IStyleInternal.h */,
+				3196DAD320208DE200DDEFE6 /* IStyleSheet.h */,
+				3196DACE20208DE200DDEFE6 /* IStyleSheet.m */,
+			);
+			path = css;
+			sourceTree = "<group>";
+		};
+		3196DAE420208E8200DDEFE6 /* cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				3196DAE520208E9B00DDEFE6 /* NSValue+.h */,
+				3196DAE620208E9B00DDEFE6 /* NSValue+.m */,
+				3196DAEA20208F5E00DDEFE6 /* UIView.h */,
+				3196DAE920208F5E00DDEFE6 /* UIView.m */,
+			);
+			path = cocoa;
+			sourceTree = "<group>";
+		};
+		3196DAF22020908E00DDEFE6 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				3196DAF32020908E00DDEFE6 /* AppDelegate.h */,
+				3196DAF42020908E00DDEFE6 /* AppDelegate.m */,
+				3196DB02202090CC00DDEFE6 /* TestWindow.h */,
+				3196DB03202090CC00DDEFE6 /* TestWindow.m */,
+				3196DB04202090CC00DDEFE6 /* TestWindow.xib */,
+				3196DB082020916E00DDEFE6 /* Supporting Files */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		3196DB082020916E00DDEFE6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3196DB0B20209D8000DDEFE6 /* alex.png */,
+				3196DAF62020908E00DDEFE6 /* Assets.xcassets */,
+				3196DAF82020908E00DDEFE6 /* MainMenu.xib */,
+				3196DAFB2020908E00DDEFE6 /* Info.plist */,
+				3196DAFC2020908E00DDEFE6 /* main.m */,
+				3196DAFE2020908E00DDEFE6 /* Test.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3196DB092020918E00DDEFE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3196DAA920208C7F00DDEFE6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */,
+				3196DADE20208DE200DDEFE6 /* ICssRule.h in Headers */,
+				3196DAC420208CB700DDEFE6 /* IView.h in Headers */,
+				3196DAE720208E9B00DDEFE6 /* NSValue+.h in Headers */,
+				3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */,
+				3196DAC820208CE600DDEFE6 /* PrefixHeader.pch in Headers */,
+				3196DAC120208CB700DDEFE6 /* IKit.h in Headers */,
+				3196DAD720208DE200DDEFE6 /* IStyleInternal.h in Headers */,
+				3196DAE020208DE200DDEFE6 /* IStyleSheet.h in Headers */,
+				3196DAC520208CB700DDEFE6 /* IViewInternal.h in Headers */,
+				3196DADD20208DE200DDEFE6 /* ICssDecl.h in Headers */,
+				3196DAD820208DE200DDEFE6 /* ICssBlock.h in Headers */,
+				3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */,
+				3196DADC20208DE200DDEFE6 /* IFlowLayout.h in Headers */,
+				3196DAEC20208F5E00DDEFE6 /* UIView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3196DAAA20208C7F00DDEFE6 /* cocoaui-mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3196DAB420208C7F00DDEFE6 /* Build configuration list for PBXNativeTarget "cocoaui-mac" */;
+			buildPhases = (
+				3196DAA720208C7F00DDEFE6 /* Sources */,
+				3196DAA820208C7F00DDEFE6 /* Frameworks */,
+				3196DAA920208C7F00DDEFE6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "cocoaui-mac";
+			productName = "cocoaui-mac";
+			productReference = 3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		3196DAF02020908E00DDEFE6 /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3196DAFF2020908E00DDEFE6 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				3196DAED2020908E00DDEFE6 /* Sources */,
+				3196DAEE2020908E00DDEFE6 /* Frameworks */,
+				3196DAEF2020908E00DDEFE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test;
+			productName = Test;
+			productReference = 3196DAF12020908E00DDEFE6 /* Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3196DAA320208C7E00DDEFE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = ideawu;
+				TargetAttributes = {
+					3196DAAA20208C7F00DDEFE6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					3196DAF02020908E00DDEFE6 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3196DAA620208C7E00DDEFE6 /* Build configuration list for PBXProject "cocoaui-mac" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3196DAA220208C7E00DDEFE6;
+			productRefGroup = 3196DAAC20208C7F00DDEFE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3196DAAA20208C7F00DDEFE6 /* cocoaui-mac */,
+				3196DAF02020908E00DDEFE6 /* Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3196DAEF2020908E00DDEFE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */,
+				3196DAFA2020908E00DDEFE6 /* MainMenu.xib in Resources */,
+				3196DB0C20209D8000DDEFE6 /* alex.png in Resources */,
+				3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3196DAA720208C7F00DDEFE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3196DB0F20209EBE00DDEFE6 /* NSValue+.m in Sources */,
+				3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */,
+				3196DAC620208CB700DDEFE6 /* IView.m in Sources */,
+				3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */,
+				3196DADA20208DE200DDEFE6 /* IStyle.m in Sources */,
+				3196DADB20208DE200DDEFE6 /* IStyleSheet.m in Sources */,
+				3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */,
+				3196DAD920208DE200DDEFE6 /* ICssRule.m in Sources */,
+				3196DADF20208DE200DDEFE6 /* ICssDecl.m in Sources */,
+				3196DAEB20208F5E00DDEFE6 /* UIView.m in Sources */,
+				3196DAE220208DE200DDEFE6 /* IFlowLayout.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3196DAED2020908E00DDEFE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3196DAFD2020908E00DDEFE6 /* main.m in Sources */,
+				3196DAF52020908E00DDEFE6 /* AppDelegate.m in Sources */,
+				3196DB05202090CC00DDEFE6 /* TestWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3196DAF82020908E00DDEFE6 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3196DAF92020908E00DDEFE6 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3196DAB220208C7F00DDEFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "cocoaui-mac/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3196DAB320208C7F00DDEFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "cocoaui-mac/PrefixHeader.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3196DAB520208C7F00DDEFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3196DAB620208C7F00DDEFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3196DB002020908E00DDEFE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideawu.cocoaui.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3196DB012020908E00DDEFE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Test/Test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Test/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ideawu.cocoaui.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3196DAA620208C7E00DDEFE6 /* Build configuration list for PBXProject "cocoaui-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3196DAB220208C7F00DDEFE6 /* Debug */,
+				3196DAB320208C7F00DDEFE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3196DAB420208C7F00DDEFE6 /* Build configuration list for PBXNativeTarget "cocoaui-mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3196DAB520208C7F00DDEFE6 /* Debug */,
+				3196DAB620208C7F00DDEFE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3196DAFF2020908E00DDEFE6 /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3196DB002020908E00DDEFE6 /* Debug */,
+				3196DB012020908E00DDEFE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3196DAA320208C7E00DDEFE6 /* Project object */;
+}

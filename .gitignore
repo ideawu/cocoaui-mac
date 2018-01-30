@@ -1,0 +1,10 @@
+.DS_Store
+*.swp
+*.xcuserstate
+*.xcuserdatad
+build
+cocoaui-mac.xcodeproj/project.xcworkspace/xcshareddata/cocoaui-mac.xccheckout
+cocoaui-mac.xcodeproj/project.xcworkspace/xcuserdata/
+cocoaui-mac.xcodeproj/xcuserdata/
+UserInterfaceState.xcuserstate
+
