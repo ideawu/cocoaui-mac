@@ -29,8 +29,6 @@
 		3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD420208DE200DDEFE6 /* IStyle.h */; };
 		3196DAE220208DE200DDEFE6 /* IFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD520208DE200DDEFE6 /* IFlowLayout.m */; };
 		3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD620208DE200DDEFE6 /* ICssBlock.m */; };
-		3196DAE720208E9B00DDEFE6 /* NSValue+.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAE520208E9B00DDEFE6 /* NSValue+.h */; };
-		3196DAEB20208F5E00DDEFE6 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE920208F5E00DDEFE6 /* UIView.m */; };
 		3196DAEC20208F5E00DDEFE6 /* UIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAEA20208F5E00DDEFE6 /* UIView.h */; };
 		3196DAF52020908E00DDEFE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAF42020908E00DDEFE6 /* AppDelegate.m */; };
 		3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3196DAF62020908E00DDEFE6 /* Assets.xcassets */; };
@@ -40,7 +38,6 @@
 		3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB04202090CC00DDEFE6 /* TestWindow.xib */; };
 		3196DB0C20209D8000DDEFE6 /* alex.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB0B20209D8000DDEFE6 /* alex.png */; };
 		3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */; };
-		3196DB0F20209EBE00DDEFE6 /* NSValue+.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE620208E9B00DDEFE6 /* NSValue+.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +64,6 @@
 		3196DAD420208DE200DDEFE6 /* IStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStyle.h; sourceTree = "<group>"; };
 		3196DAD520208DE200DDEFE6 /* IFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFlowLayout.m; sourceTree = "<group>"; };
 		3196DAD620208DE200DDEFE6 /* ICssBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICssBlock.m; sourceTree = "<group>"; };
-		3196DAE520208E9B00DDEFE6 /* NSValue+.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+.h"; sourceTree = "<group>"; };
-		3196DAE620208E9B00DDEFE6 /* NSValue+.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+.m"; sourceTree = "<group>"; };
 		3196DAE920208F5E00DDEFE6 /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
 		3196DAEA20208F5E00DDEFE6 /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
 		3196DAF12020908E00DDEFE6 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +159,6 @@
 		3196DAE420208E8200DDEFE6 /* cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				3196DAE520208E9B00DDEFE6 /* NSValue+.h */,
-				3196DAE620208E9B00DDEFE6 /* NSValue+.m */,
 				3196DAEA20208F5E00DDEFE6 /* UIView.h */,
 				3196DAE920208F5E00DDEFE6 /* UIView.m */,
 			);
@@ -215,7 +208,6 @@
 				3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */,
 				3196DADE20208DE200DDEFE6 /* ICssRule.h in Headers */,
 				3196DAC420208CB700DDEFE6 /* IView.h in Headers */,
-				3196DAE720208E9B00DDEFE6 /* NSValue+.h in Headers */,
 				3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */,
 				3196DAC820208CE600DDEFE6 /* PrefixHeader.pch in Headers */,
 				3196DAC120208CB700DDEFE6 /* IKit.h in Headers */,
@@ -324,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3196DB0F20209EBE00DDEFE6 /* NSValue+.m in Sources */,
 				3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */,
 				3196DAC620208CB700DDEFE6 /* IView.m in Sources */,
 				3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */,
@@ -333,7 +324,6 @@
 				3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */,
 				3196DAD920208DE200DDEFE6 /* ICssRule.m in Sources */,
 				3196DADF20208DE200DDEFE6 /* ICssDecl.m in Sources */,
-				3196DAEB20208F5E00DDEFE6 /* UIView.m in Sources */,
 				3196DAE220208DE200DDEFE6 /* IFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
