@@ -15,6 +15,8 @@
 #import "ICssDecl.h"
 #import "ICssBlock.h"
 #import "ICssRule.h"
+#import "IResourceMananger.h"
+
 
 @implementation IStyleBorder
 
@@ -630,7 +632,7 @@
 		}
 		//log_debug(@"%@ load background image: %@", _view.name, src);
 		IEventType event = _view.event;
-		[self loadImageSrc:src callback:^(UIImage *img) {
+		[[IResourceMananger sharedMananger] loadImageSrc:src callback:^(UIImage *img) {
 			// 如果在异步加载的前后, _view 状态发生了改变, 则不更新 background-image
 			// 可能有考虑不到的地方, 但先这么做吧.
 			if(event == _view.event){
@@ -639,63 +641,6 @@
 			}
 		}];
 	}
-}
-
-- (UIImage *)loadImageSrc:(NSString *)src callback:(void (^)(UIImage *))callback{
-	UIImage *img = nil;
-	
-	if([IKitUtil isHttpUrl:src]){
-		if(img){
-			log_debug(@"load img from cache: %@", src);
-			if(callback){
-				callback(img);
-			}
-			return img;
-		}
-		
-		// TODO: 并发控制, 去重
-		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-		[request setHTTPMethod:@"GET"];
-		[request setURL:[NSURL URLWithString:src]];
-		[request setCachePolicy:NSURLRequestReloadIgnoringCacheData];
-		[NSURLConnection sendAsynchronousRequest:request
-										   queue:[NSOperationQueue currentQueue]
-							   completionHandler:^(NSURLResponse *urlresp, NSData *data, NSError *error)
-		 {
-			log_debug(@"load img from remote: %@", src);
-			UIImage *img = [[UIImage alloc] initWithData:data];
-			if(img){
-			 if(callback){
-				 dispatch_async(dispatch_get_main_queue(), ^{
-					 callback(img);
-				 });
-			 }
-			}
-		 }];
-	}else if([IKitUtil isDataURI:src]){
-		log_debug(@"load image element from data URI");
-		img = [IKitUtil loadImageFromDataURI:src];
-		if(callback){
-			callback(img);
-		}
-	}else if(![src isEqual:@""]){
-		if([src characterAtIndex:0] != '/'){
-			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
-		}else if([src rangeOfString:[NSBundle mainBundle].resourcePath].length > 0){
-			src = [src substringFromIndex:[NSBundle mainBundle].resourcePath.length + 1];
-			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
-		}else{
-			NSData *data = [NSData dataWithContentsOfFile:src];
-			img = [[UIImage alloc] initWithData:data];
-		}
-		log_debug(@"load img from local: %@", src);
-		if(img){
-			if(callback){
-				callback(img);
-			}
-		}
-	}
-	return img;
 }
 
 - (void)applyFont{

@@ -16,9 +16,10 @@
 #import "TargetConditionals.h"
 
 #import "UIView.h"
+#import "UIImageView.h"
+#import "UILabel.h"
 
 #define NSStringFromCGRect NSStringFromRect
-#	define UIImageView NSImageView
 #	define UIImage NSImage
 #	define UIEdgeInsets NSEdgeInsets
 #	define UIEdgeInsetsZero NSEdgeInsetsZero
@@ -37,6 +38,14 @@ inline static NSData* UIImagePNGRepresentation(NSImage *image){
 	[image unlockFocus];
 	NSDictionary *attrs = [[NSDictionary alloc] init];
 	return [bitmapRep representationUsingType:NSPNGFileType properties:attrs];
+}
+
+inline static CGRect UIEdgeInsetsInsetRect(CGRect rect, UIEdgeInsets insets) {
+	rect.origin.x    += insets.left;
+	rect.origin.y    += insets.top;
+	rect.size.width  -= (insets.left + insets.right);
+	rect.size.height -= (insets.top  + insets.bottom);
+	return rect;
 }
 
 

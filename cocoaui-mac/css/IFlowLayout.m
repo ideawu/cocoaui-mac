@@ -65,6 +65,7 @@
 }
 
 - (void)layout{
+//	log_debug(@"%@", _view);
 	if(_view.isRootView){
 		if(_style.ratioWidth > 0){
 			_style.w = _style.ratioWidth * _view.superview.frame.size.width - _style.margin.left - _style.margin.right;
@@ -77,7 +78,10 @@
 	}
 
 	if(_view.isPrimativeView){
-		//
+		float x = _style.borderLeft.width + _style.padding.left;
+		float y = _style.borderTop.width + _style.padding.top;
+//		log_debug(@"%f %f", x, y);
+		_view.contentView.frame = CGRectMake(x, y, _style.innerWidth, _style.innerHeight);
 	}else{
 		if(_style.resizeHeight){
 			_style.h = 0;
@@ -160,9 +164,12 @@
 
 	if(style.resizeNone){
 		// view.need_layout 的时候再调用?
-		[view layout];
+//		[view layout];
 	}
-	
+	// TODO:
+	[view layout];
+	[view setNeedsLayout:NO];
+
 	while(1){
 		if(!style.resizeNone){
 			if(style.resizeWidth){

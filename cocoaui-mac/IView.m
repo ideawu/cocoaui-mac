@@ -27,7 +27,6 @@
 	//void (^_clickHandler)(IEventType, IView *);
 	
 	IMaskUIView *maskView;
-	UIView *contentView;
 	BOOL _needRenderOnUnhighlight;
 }
 @property (nonatomic) BOOL need_layout;
@@ -172,7 +171,7 @@
 
 - (void)addUIView:(UIView *)view{
 	[self setNeedsLayout];
-	contentView = view;
+	_contentView = view;
 	[super addSubview:view];
 }
 
@@ -202,7 +201,7 @@
 }
 
 - (void)addSubview:(UIView *)view{
-	log_debug(@"%@", view);
+//	log_debug(@"%@", view);
 	[self addSubview:view style:nil];
 }
 
@@ -273,7 +272,7 @@
 }
 
 - (BOOL)isPrimativeView{
-	return ((!_subs || _subs.count == 0) && contentView);
+	return ((!_subs || _subs.count == 0) && _contentView);
 }
 
 - (void)updateMaskView{
@@ -349,9 +348,9 @@
 
 - (void)layout{
 	[super layout];
-	log_debug(@"%@ layout begin %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
+//	log_debug(@"%@ layout begin %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
 	[self layoutSubviews];
-	log_debug(@"%@ layout end %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
+//	log_debug(@"%@ layout end %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
 }
 
 - (void)layoutSubviews{
@@ -360,7 +359,7 @@
 		return;
 	}
 	if(_style.resizeWidth){
-		if(!self.isRootView/* && !self.isPrimativeView*/){
+		if(!self.isRootView && !self.isPrimativeView){
 			//log_debug(@"return %@ %s parent: %@", self.name, __FUNCTION__, self.parent.name);
 			return;
 		}
@@ -378,16 +377,17 @@
 	_need_layout = false;
 }
 
+- (BOOL)isFlipped{
+	return YES;
+}
+
 - (void)updateFrame{
 //	log_debug(@"%@ %s %@=>%@", self.name, __FUNCTION__, NSStringFromRect(self.frame), NSStringFromRect(_style.rect));
-	if(self.isPrimativeView){
-		contentView.frame = CGRectMake(0, 0, _style.w, _style.h);
-	}
-	
 	CGRect frame = _style.rect;
-	if(self.superview.class == [NSView class]){
+	if(!self.superview.isFlipped){
 		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
 	}
+//	log_debug(@"%@ %.2f %.2f", self, frame.size.width, frame.size.height);
 
 	self.frame = frame;
 	self.hidden = _style.hidden;

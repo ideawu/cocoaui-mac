@@ -21,6 +21,7 @@
 @property (nonatomic) IViewLoader *viewLoader;
 
 @property (nonatomic, weak) IView *parent;
+@property (nonatomic) UIView *contentView;
 @property (nonatomic, readonly) NSMutableArray *subs;
 
 @property (nonatomic, weak) ITableCell *cell;
