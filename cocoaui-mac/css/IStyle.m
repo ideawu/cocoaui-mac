@@ -403,7 +403,7 @@
 - (void)applyDecl:(ICssDecl *)decl baseUrl:(NSString *)baseUrl{
 	NSString *k = decl.key;
 	NSString *v = decl.val;
-	//log_debug(@"    %@: %@;", k, v);
+//	log_debug(@"    %@: %@;", k, v);
 	
 	if([k isEqualToString:@"display"]){
 		needsLayout = YES;
@@ -452,7 +452,7 @@
 			return;
 		}
 		_resizeType &= ~IStyleResizeWidth;
-		
+
 		float f = [v floatValue];
 		if([v rangeOfString:@"%"].location == NSNotFound){
 			_w = f;
@@ -471,7 +471,7 @@
 			return;
 		}
 		_resizeType &= ~IStyleResizeHeight;
-		
+
 		float f = [v floatValue];
 		if([v rangeOfString:@"%"].location == NSNotFound){
 			_h = f;
