@@ -27,11 +27,10 @@
 	//void (^_unhighlightHandler)(IEventType, IView *);
 	//void (^_clickHandler)(IEventType, IView *);
 	
-	IMaskUIView *maskView;
 	BOOL _needRenderOnUnhighlight;
 }
 @property (nonatomic) BOOL need_layout;
-@property (nonatomic) UIView *backgroundView;
+@property (nonatomic) IMaskUIView *maskView;
 @end
 
 @implementation IView
@@ -115,6 +114,8 @@
 	
 	_need_layout = true;
 	_layouter = [IFlowLayout layoutWithView:self];
+	_maskView = [[IMaskUIView alloc] init];
+	[super addSubview:_maskView];
 }
 
 - (BOOL)acceptsFirstResponder{
@@ -186,9 +187,11 @@
 	}
 	sub.parent = self;
 	sub.level = self.level + 1;
-
 	[_subs addObject:sub];
+	
+	[_maskView removeFromSuperview];
 	[super addSubview:sub];
+	[super addSubview:_maskView];
 
 	if(css){
 		[sub.style set:css];
@@ -273,48 +276,6 @@
 	return ((!_subs || _subs.count == 0) && _contentView);
 }
 
-- (void)updateMaskView{
-	if(_style.borderDrawType == IStyleBorderDrawNone){
-		if(maskView){
-			[maskView removeFromSuperview];
-			maskView = nil;
-		}
-	}else{
-		if(!maskView){
-			maskView = [[IMaskUIView alloc] init];
-			[super addSubview:maskView];
-		}
-		CGRect frame = self.frame;
-		frame.origin = CGPointZero;
-		maskView.frame = frame;
-		
-		[self bringSubviewToFront:maskView];
-		maskView.needsDisplay = YES;
-	}
-}
-
-- (void)updateBackgroundView{
-	// TODO: 优化, 不要频繁创建销毁 _backgroundView
-	if(_backgroundView){
-		[_backgroundView removeFromSuperview];
-	}
-	if(_style.backgroundImage){
-		if(_style.backgroundRepeat){
-			_backgroundView = [[UIView alloc] init];
-			_backgroundView.backgroundColor = [UIColor colorWithPatternImage:_style.backgroundImage];
-		}else{
-			_backgroundView = (UIView *)[UIImageView imageViewWithImage:_style.backgroundImage];
-		}
-		[super addSubview:_backgroundView];
-		[self sendSubviewToBack:_backgroundView];
-		CGRect frame = self.frame;
-		frame.origin = CGPointZero;
-		_backgroundView.frame = frame;
-	}
-	
-	self.layer.opacity = _style.opacity;
-}
-
 - (void)setNeedsLayout{
 	//log_debug(@"%@ %s", self.name, __FUNCTION__);
 	_need_layout = true;
@@ -330,18 +291,29 @@
 }
 
 - (void)drawRect:(CGRect)rect{
-	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
-	//[super drawRect:rect]; // no need
+//	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
+	[super drawRect:rect];
 
 //	self.clipsToBounds = _style.overflowHidden;
+	
+	self.layer.opacity = _style.opacity;
 	self.layer.backgroundColor = [_style.backgroundColor CGColor];
-	if(_style.borderRadius > 0){
-		self.layer.cornerRadius = _style.borderRadius;
+	self.layer.cornerRadius = _style.borderRadius;
+
+	if(_style.backgroundImage){
+		UIImage *img = _style.backgroundImage;
+		CGRect imgRect = CGRectMake(0, 0, img.size.width, img.size.height);
+		if(_style.backgroundRepeat){
+			self.layer.backgroundColor = [UIColor colorWithPatternImage:img].CGColor;
+		}else{
+			[img drawInRect:imgRect
+				   fromRect:imgRect
+				  operation:NSCompositingOperationSourceOver
+				   fraction:1
+			 respectFlipped:YES
+					  hints:nil];
+		}
 	}
-	if(maskView){
-		maskView.needsDisplay = YES;
-	}
-	[self updateBackgroundView];
 }
 
 - (void)layout{
@@ -389,10 +361,15 @@
 
 	self.frame = frame;
 	self.hidden = _style.hidden;
-	
-	[self updateMaskView];
-	[self updateBackgroundView];
 	self.needsDisplay = YES;
+
+	if(_style.borderDrawType == IStyleBorderDrawNone){
+		_maskView.hidden = YES;
+	}else{
+		_maskView.frame = self.bounds;
+		_maskView.needsDisplay = YES;
+	}
+//		[self bringSubviewToFront:_maskView];
 }
 
 
