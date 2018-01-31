@@ -55,7 +55,33 @@
 		3196DB3A20216DA800DDEFE6 /* ILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB3820216DA800DDEFE6 /* ILabel.h */; };
 		3197B8B12021845100A2FDE0 /* Test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3197B8B02021845100A2FDE0 /* Test.xml */; };
 		3197B8B32021850A00A2FDE0 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3197B8B22021850A00A2FDE0 /* libxml2.tbd */; };
+		3197B8B52021D43100A2FDE0 /* UILabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DB3420216D5E00DDEFE6 /* UILabel.h */; };
+		3197B8B62021D4D200A2FDE0 /* IStyle.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DAD420208DE200DDEFE6 /* IStyle.h */; };
+		3197B8B72021D4D200A2FDE0 /* IImage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DB2B20216AAF00DDEFE6 /* IImage.h */; };
+		3197B8B82021D4D200A2FDE0 /* ILabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DB3820216DA800DDEFE6 /* ILabel.h */; };
+		3197B8B92021D4D200A2FDE0 /* IKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DAB920208CB700DDEFE6 /* IKit.h */; };
+		3197B8BA2021D4D200A2FDE0 /* IKitUtil.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DAB720208CB700DDEFE6 /* IKitUtil.h */; };
+		3197B8BB2021D4D200A2FDE0 /* IView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3196DABC20208CB700DDEFE6 /* IView.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3197B8B42021D42700A2FDE0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = IKit;
+			dstSubfolderSpec = 7;
+			files = (
+				3197B8B62021D4D200A2FDE0 /* IStyle.h in CopyFiles */,
+				3197B8B72021D4D200A2FDE0 /* IImage.h in CopyFiles */,
+				3197B8B82021D4D200A2FDE0 /* ILabel.h in CopyFiles */,
+				3197B8B92021D4D200A2FDE0 /* IKit.h in CopyFiles */,
+				3197B8BA2021D4D200A2FDE0 /* IKitUtil.h in CopyFiles */,
+				3197B8BB2021D4D200A2FDE0 /* IView.h in CopyFiles */,
+				3197B8B52021D43100A2FDE0 /* UILabel.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocoaui-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -305,6 +331,7 @@
 				3196DAA720208C7F00DDEFE6 /* Sources */,
 				3196DAA820208C7F00DDEFE6 /* Frameworks */,
 				3196DAA920208C7F00DDEFE6 /* Headers */,
+				3197B8B42021D42700A2FDE0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
