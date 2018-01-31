@@ -488,7 +488,7 @@
 	NSPoint point;
 	while (1) {
 		event = [[self window] nextEventMatchingMask:(NSEventMaskLeftMouseDragged | NSEventMaskLeftMouseUp)];
-		point = [self convertPoint:[event locationInWindow] fromView: nil];
+		point = [self convertPoint:[event locationInWindow] fromView:nil];
 
 		BOOL inside = [self mouse:point inRect:self.bounds];
 		if(prevInside && !inside){
@@ -498,14 +498,14 @@
 		}
 		prevInside = inside;
 		
-		[self mouseDragged:event];
-		
-		if([event type] == NSEventTypeLeftMouseUp){
+		if(event.type == NSEventTypeLeftMouseUp){
 			if(!inside){
 				[self delState:IViewStateDown];
 			}
 			[self mouseUp:event];
 			break;
+		}else{
+			[self mouseDragged:event];
 		}
 	}
 }
