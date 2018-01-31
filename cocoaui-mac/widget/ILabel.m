@@ -38,7 +38,7 @@
 	_label.numberOfLines = 0;
 	_label.lineBreakMode = NSLineBreakByWordWrapping; // NSLineBreakByCharWrapping NSLineBreakByWordWrapping
 	
-	[self addUIView:_label];
+	[self addUIView:(UIView *)_label];
 	return self;
 }
 

@@ -13,6 +13,7 @@
 #import "IMaskUIView.h"
 #import "IStyleSheet.h"
 #import "ICssRule.h"
+#import "IViewLoader.h"
 
 @interface IView (){
 	NSTrackingArea *_trackingArea;
@@ -50,7 +51,6 @@
 	return ret;
 }
 
-#if TARGET_OS_IPHONE
 + (IView *)namedView:(NSString *)name{
 	NSString *path;
 	NSRange range = [name rangeOfString:@"." options:NSBackwardsSearch];
@@ -71,7 +71,7 @@
 + (IView *)viewWithContentsOfFile:(NSString *)path{
 	return [IViewLoader viewWithContentsOfFile:path];
 }
-#endif
+
 
 - (id)initWithFrame:(CGRect)frame{
 	self = [super initWithFrame:frame];
@@ -146,11 +146,9 @@
 - (IStyleSheet *)inheritedStyleSheet{
 	IView *v = self;
 	while(v){
-#if TARGET_OS_IPHONE
 		if(v.viewLoader){
 			return v.viewLoader.styleSheet;
 		}
-#endif
 		v = v.parent;
 	}
 	// TODO: 返回一个默认的 IStyleSheet?
@@ -332,7 +330,7 @@
 }
 
 - (void)drawRect:(CGRect)rect{
-//	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
+	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
 	//[super drawRect:rect]; // no need
 
 //	self.clipsToBounds = _style.overflowHidden;
@@ -426,6 +424,7 @@
 		IStyleSheet *sheet = self.inheritedStyleSheet;
 		if(sheet){
 			for(ICssRule *rule in sheet.rules){
+//				log_debug(@"%@ %d %d", rule, [rule containsPseudoClass], [rule matchView:self]);
 				if([rule containsPseudoClass] && [rule matchView:self]){
 					_needRenderOnUnhighlight = YES;
 					[self.style renderAllCss];

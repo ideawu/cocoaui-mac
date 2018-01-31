@@ -86,19 +86,7 @@
 }
 
 - (BOOL)selector:(NSString *)selector matchView:(IView *)view{
-	if([selector isEqualToString:@"*"]){
-		return YES;
-	}else if([selector characterAtIndex:0] == '#'){
-		// ID match
-		if(view.vid && [view.vid isEqualToString:[selector substringFromIndex:1]]){
-			return YES;
-		}
-	}else if([selector characterAtIndex:0] == '.'){
-		// class match
-		if([view.style hasClass:[selector substringFromIndex:1]]){
-			return YES;
-		}
-	}else if([selector rangeOfString:@":"].length > 0){
+	if([selector rangeOfString:@":"].length > 0){
 		if(view.event == IEventHighlight){
 			NSArray *ps = [selector componentsSeparatedByString:@":"];
 			if(![self selector:ps[0] matchView:view]){
@@ -109,6 +97,19 @@
 			}
 		}
 		return NO;
+	}else if([selector isEqualToString:@"*"]){
+		return YES;
+	}else if([selector characterAtIndex:0] == '#'){
+		// ID match
+		if(view.vid && [view.vid isEqualToString:[selector substringFromIndex:1]]){
+			return YES;
+		}
+	}else if([selector characterAtIndex:0] == '.'){
+		// class match
+		if([view.style hasClass:[selector substringFromIndex:1]]){
+//			log_debug(@"%@ %@ %@", self, view.style.classes, [selector substringFromIndex:1]);
+			return YES;
+		}
 	}else if([selector rangeOfString:@"."].length > 0){
 		// a.class match
 		NSArray *ps = [selector componentsSeparatedByString:@"."];

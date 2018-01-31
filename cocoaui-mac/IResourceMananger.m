@@ -215,6 +215,7 @@ static IResourceMananger *_sharedMananger;
 		NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 		[request setHTTPMethod:@"GET"];
 		[request setURL:[NSURL URLWithString:path]];
+		
 		NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&err];
 		if(data){
 			text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];

@@ -43,7 +43,6 @@
 @property (nonatomic) UIFont *font;
 @property (nonatomic) UIColor *color;
 @property (nonatomic) IStyleTextAlign textAlign;
-@property (nonatomic) NSMutableSet *classes;
 @end
 
 
@@ -336,8 +335,60 @@
 	}
 }
 
-- (void)renderCssFromStylesheet:(IStyleSheet *)sheet{
+- (void)renderAllCss{
+	// 1. builtin(default) css
+	// 2. custom css
+	// 3. inline css
+	// 4. builtin pseudo class css
+	// 5. custom pseudo class css
+	// $: dynamically set css
+	
+	IStyleSheet *sheet = _view.inheritedStyleSheet;
+
+	//log_debug(@"%@ %@ %s", _view.name, _tagName, __func__);
+	[self reset];
+
+	// 1. built-in css
+	[self renderCssFromStylesheet:[IStyleSheet builtin] pseudoOnly:NO];
+	
+	// 2. custom css
+	if(sheet){
+		[self renderCssFromStylesheet:sheet pseudoOnly:NO];
+	}
+	
+	// 3. inline css
+	for(ICssDecl *decl in _cssBlock.decls){
+		[self applyDecl:decl baseUrl:_cssBlock.baseUrl];
+	}
+	
+	// 4. builtin pseudo class css
+	[self renderCssFromStylesheet:[IStyleSheet builtin] pseudoOnly:YES];
+
+	// 5. custom pseudo class css
+	if(sheet){
+		[self renderCssFromStylesheet:sheet pseudoOnly:YES];
+	}
+
+	// 重新应用子节点的样式
+	for(IView *sub in _view.subs){
+		[sub.style renderAllCss];
+	}
+	
+	_view.needsLayout = YES;
+	_view.needsDisplay = YES;
+//	log_debug(@"%@", _view);
+//	[_view setNeedsDisplayInRect:_view.bounds];
+}
+
+- (void)renderCssFromStylesheet:(IStyleSheet *)sheet pseudoOnly:(BOOL)pseudoOnly{
 	for(ICssRule *rule in sheet.rules){
+		BOOL isPseudo = [rule containsPseudoClass];
+		if(pseudoOnly && !isPseudo){
+			continue;
+		}
+		if(!pseudoOnly && isPseudo){
+			continue;
+		}
 		//log_debug(@"RULE: %@", rule);
 		if([rule matchView:_view]){
 			//log_debug(@" %@#%@ match?: %d", _tagName, self.view.vid, [rule matchView:_view]);
@@ -346,38 +397,6 @@
 				[self applyDecl:decl baseUrl:rule.declBlock.baseUrl];
 			}
 		}
-	}
-}
-
-- (void)renderAllCss{
-	// 1. builtin(default) css
-	// 2. stylesheet(by style tag) css
-	// 3. inline css
-	// $: dynamically set css
-	
-	//log_debug(@"%@ %@ %s", _view.name, _tagName, __func__);
-	[self reset];
-
-	// 1. built-in css
-	[self renderCssFromStylesheet:[IStyleSheet builtin]];
-	
-	// 2. stylesheet css
-	IStyleSheet *sheet = _view.inheritedStyleSheet;
-	if(sheet){
-		[self renderCssFromStylesheet:sheet];
-	}
-	
-	// 3. inline css
-	for(ICssDecl *decl in _cssBlock.decls){
-		[self applyDecl:decl baseUrl:_cssBlock.baseUrl];
-	}
-	
-	_view.needsLayout = YES;
-	_view.needsDisplay = YES;
-	
-	// 重新应用子节点的样式
-	for(IView *sub in _view.subs){
-		[sub.style renderAllCss];
 	}
 }
 

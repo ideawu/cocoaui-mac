@@ -57,6 +57,8 @@
 		3196DB3620216D5F00DDEFE6 /* UILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB3420216D5E00DDEFE6 /* UILabel.h */; };
 		3196DB3920216DA800DDEFE6 /* ILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB3720216DA700DDEFE6 /* ILabel.m */; };
 		3196DB3A20216DA800DDEFE6 /* ILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB3820216DA800DDEFE6 /* ILabel.h */; };
+		3197B8B12021845100A2FDE0 /* Test.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3197B8B02021845100A2FDE0 /* Test.xml */; };
+		3197B8B32021850A00A2FDE0 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3197B8B22021850A00A2FDE0 /* libxml2.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,6 +117,8 @@
 		3196DB3420216D5E00DDEFE6 /* UILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabel.h; sourceTree = "<group>"; };
 		3196DB3720216DA700DDEFE6 /* ILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILabel.m; sourceTree = "<group>"; };
 		3196DB3820216DA800DDEFE6 /* ILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ILabel.h; sourceTree = "<group>"; };
+		3197B8B02021845100A2FDE0 /* Test.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Test.xml; sourceTree = "<group>"; };
+		3197B8B22021850A00A2FDE0 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3197B8B32021850A00A2FDE0 /* libxml2.tbd in Frameworks */,
 				3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +222,7 @@
 				3196DAF42020908E00DDEFE6 /* AppDelegate.m */,
 				3196DB02202090CC00DDEFE6 /* TestWindow.h */,
 				3196DB03202090CC00DDEFE6 /* TestWindow.m */,
+				3197B8B02021845100A2FDE0 /* Test.xml */,
 				3196DB04202090CC00DDEFE6 /* TestWindow.xib */,
 				3196DB082020916E00DDEFE6 /* Supporting Files */,
 			);
@@ -239,6 +245,7 @@
 		3196DB092020918E00DDEFE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3197B8B22021850A00A2FDE0 /* libxml2.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -384,6 +391,7 @@
 			files = (
 				3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */,
 				3196DAFA2020908E00DDEFE6 /* MainMenu.xib in Resources */,
+				3197B8B12021845100A2FDE0 /* Test.xml in Resources */,
 				3196DB0C20209D8000DDEFE6 /* alex.png in Resources */,
 				3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */,
 			);

@@ -24,9 +24,13 @@
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
-	IView *container = [[IView alloc] init];
-	[container.style set:@"border: 10px solid #f33;"];
-	[self.window.contentView addSubview:container];
+	
+	IView *view = [IView namedView:@"Test"];
+	[self.window.contentView addSubview:view];
+	
+//	IView *container = [[IView alloc] init];
+//	[container.style set:@"border: 10px solid #f33;"];
+//	[self.window.contentView addSubview:container];
 
 //	{
 //		IView *view = [[IView alloc] init];
@@ -37,18 +41,17 @@
 //		[container addSubview:view];
 //	}
 //	
-	{
-		IView *view = [[IView alloc] init];
-		[view.style set:@"width: 100; height: 100; margin: 0; border: 1px solid #000; background: #666 url(alex.png);"];
-		[container addSubview:view];
-	}
-	
-	{
-		ILabel *view = [ILabel labelWithText:@"ABC"];
-		[view.style set:@"border: 11px solid #00f; text-align: center;"];
-//		[view.style set:@"width: 100; height: 50;"];
-		[container addSubview:view];
-	}
+//	{
+//		IView *view = [[IView alloc] init];
+//		[view.style set:@"width: 100; height: 100; margin: 0; border: 1px solid #000; background: #666 url(alex.png);"];
+//		[container addSubview:view];
+//	}
+//
+//	{
+//		ILabel *view = [ILabel labelWithText:@"ABC"];
+//		[view.style set:@"border: 11px solid #00f; text-align: center;"];
+//		[container addSubview:view];
+//	}
 
 }
 

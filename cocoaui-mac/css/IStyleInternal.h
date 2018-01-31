@@ -93,6 +93,8 @@ typedef enum{
 
 @interface IStyle ()
 
+@property (nonatomic) NSMutableSet *classes;
+
 @property (nonatomic, weak) IView *view;
 @property (nonatomic) NSString *tagName;
 

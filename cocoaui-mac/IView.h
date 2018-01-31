@@ -37,11 +37,9 @@ typedef enum{
 + (IView *)viewWithUIView:(UIView *)view;
 + (IView *)viewWithUIView:(UIView *)view style:(NSString *)css;
 
-#if TARGET_OS_IPHONE
 + (IView *)namedView:(NSString *)name;
 + (IView *)viewFromXml:(NSString *)xml;
 + (IView *)viewWithContentsOfFile:(NSString *)path;
-#endif
 
 - (id)data;
 /**

@@ -30,7 +30,7 @@
 }
 
 - (void)sizeToFit{
-	_backgroundColor = [NSColor redColor]; // test
+//	_backgroundColor = [NSColor redColor]; // test
 	NSSize size = self.textRect.size;
 	_drawingRect.size = size;
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height);
@@ -205,7 +205,7 @@
 }
 
 - (NSColor*)defaultBackgroundColor {
-	return [NSColor windowBackgroundColor];
+	return [NSColor clearColor];
 }
 
 #pragma mark -
