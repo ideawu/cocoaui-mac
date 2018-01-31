@@ -88,9 +88,9 @@
 - (BOOL)selector:(NSString *)selector matchView:(IView *)view{
 	if([selector rangeOfString:@":"].length > 0){
 		NSString *clz = nil;
-		if(view.state == IViewStateActive){
+		if(view.state & IViewStateActive){
 			clz = @"active";
-		}else if(view.state == IViewStateHover){
+		}else if(view.state & IViewStateHover){
 			clz = @"hover";
 		}
 

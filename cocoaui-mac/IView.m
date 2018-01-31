@@ -407,29 +407,29 @@
 }
 
 - (void)fireEvent:(IEventType)event{
-	NSString *name = nil;
-	switch (event) {
-		case IEventHighlight:
-			name = @"IEventHighlight";
-			break;
-		case IEventUnhighlight:
-			name = @"IEventUnhighlight";
-			break;
-		case IEventHover:
-			name = @"IEventHover";
-			break;
-		case IEventUnhover:
-			name = @"IEventUnhover";
-			break;
-		case IEventClick:
-			name = @"IEventClick";
-			break;
-	}
-	if(name){
-		if([self.name rangeOfString:@"span"].length != 0){
-			log_debug(@"%@ event: %@", self.name, name);
-		}
-	}
+//	NSString *name = nil;
+//	switch (event) {
+//		case IEventHighlight:
+//			name = @"IEventHighlight";
+//			break;
+//		case IEventUnhighlight:
+//			name = @"IEventUnhighlight";
+//			break;
+//		case IEventHover:
+//			name = @"IEventHover";
+//			break;
+//		case IEventUnhover:
+//			name = @"IEventUnhover";
+//			break;
+//		case IEventClick:
+//			name = @"IEventClick";
+//			break;
+//	}
+//	if(name){
+//		if([self.name rangeOfString:@"span"].length != 0){
+//			log_debug(@"%@ event: %@", self.name, name);
+//		}
+//	}
 	
 	if(_eventHandlers){
 		void (^handler)(IEventType, IView *);
@@ -442,20 +442,21 @@
 		}
 	}
 
-	[self.style renderAllCss];
-
-//	IStyleSheet *sheet = self.inheritedStyleSheet;
-//	if(sheet){
-//		for(ICssRule *rule in sheet.rules){
-//			if([rule containsPseudoClass] && [rule matchView:self]){
-//				[self.style renderAllCss];
-//				break;
-//			}
-//		}
-//		if(_event == IEventUnhover || _event == IEventUnhighlight){
-//			[self.style renderAllCss];
-//		}
-//	}
+	IStyleSheet *sheet = self.inheritedStyleSheet;
+	if(sheet){
+		if(_needRenderOnUnhighlight){
+			[self.style renderAllCss];
+			_needRenderOnUnhighlight = NO;
+		}else{
+			for(ICssRule *rule in sheet.rules){
+				if([rule containsPseudoClass] && [rule matchView:self]){
+					_needRenderOnUnhighlight = YES;
+					[self.style renderAllCss];
+					break;
+				}
+			}
+		}
+	}
 }
 
 - (void)fireHighlightEvent{
