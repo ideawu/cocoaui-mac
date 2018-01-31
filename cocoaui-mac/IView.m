@@ -118,6 +118,27 @@
 	[super addSubview:_maskView];
 }
 
+- (void)viewWillStartLiveResize{
+	if(self.isRootView){
+		[[NSNotificationCenter defaultCenter] addObserver:self
+												 selector:@selector(reshape)
+													 name:NSViewFrameDidChangeNotification
+												   object:self.superview];
+	}
+}
+
+- (void)viewDidEndLiveResize{
+	if(self.isRootView){
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+	}
+}
+
+- (void)reshape{
+	if(self.isRootView){
+		[self setNeedsLayout];
+	}
+}
+
 - (BOOL)acceptsFirstResponder{
 	return YES;
 }
@@ -136,11 +157,9 @@
 }
 
 - (IView *)getViewById:(NSString *)vid{
-#if TARGET_OS_IPHONE
 	if(_viewLoader){
 		return [_viewLoader getViewById:vid];
 	}
-#endif
 	return nil;
 }
 
@@ -354,11 +373,13 @@
 - (void)updateFrame{
 //	log_debug(@"%@ %s %@=>%@", self.name, __FUNCTION__, NSStringFromRect(self.frame), NSStringFromRect(_style.rect));
 	CGRect frame = _style.rect;
-	if(!self.superview.isFlipped){
-		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
+//	if(!self.superview.isFlipped){
+//		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
+//	}
+	if(self.isRootView){
+		frame = self.superview.bounds;
 	}
-//	log_debug(@"%@ %.2f %.2f", self, frame.size.width, frame.size.height);
-
+	
 	self.frame = frame;
 	self.hidden = _style.hidden;
 	self.needsDisplay = YES;

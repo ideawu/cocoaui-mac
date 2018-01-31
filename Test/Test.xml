@@ -8,5 +8,5 @@
 	</div>
 	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: url(alex.png) repeat;">
 	</div>
-	<span class="a" style="float: right; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</span>
+	<span class="a" style="float: left; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</span>
 </div>
