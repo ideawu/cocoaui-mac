@@ -19,18 +19,16 @@
 	NSTrackingArea *_trackingArea;
 	IEventType _mouseEvent;
 	
-	id _data;
 	NSMutableArray *_subs;
 	IFlowLayout *_layouter;
-	
-	//void (^_highlightHandler)(IEventType, IView *);
-	//void (^_unhighlightHandler)(IEventType, IView *);
-	//void (^_clickHandler)(IEventType, IView *);
+
+	NSColor *_backgroundColor;
 	
 	BOOL _needRenderOnUnhighlight;
 }
 @property (nonatomic) BOOL need_layout;
 @property (nonatomic) IMaskUIView *maskView;
+@property (nonatomic) NSMutableArray *eventHandlers;
 @end
 
 @implementation IView
@@ -139,6 +137,19 @@
 	}
 }
 
+- (BOOL)wantsLayer{
+	return YES;
+}
+
+- (NSColor *)backgroundColor{
+	return _backgroundColor;
+}
+
+- (void)setBackgroundColor:(NSColor *)backgroundColor{
+	_backgroundColor = backgroundColor;
+	self.layer.backgroundColor = _backgroundColor.CGColor;
+}
+
 - (BOOL)acceptsFirstResponder{
 	return YES;
 }
@@ -173,18 +184,6 @@
 	}
 	// TODO: 返回一个默认的 IStyleSheet?
 	return nil;
-}
-
-- (id)data{
-	return _data;
-}
-
-- (void)setData:(id)data{
-	_data = data;
-}
-
-- (void)setDataInternal:(id)data{
-	_data = data;
 }
 
 - (void)addUIView:(UIView *)view{
@@ -401,50 +400,27 @@
 }
 
 - (void)addEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler{
-	if(event & IEventHighlight){
-		_highlightHandler = handler;
+	if(!_eventHandlers){
+		_eventHandlers = [[NSMutableArray alloc] init];
 	}
-	if(event & IEventUnhighlight){
-		_unhighlightHandler = handler;
-	}
-	if(event & IEventClick){
-		_clickHandler = handler;
-	}
+	[_eventHandlers addObject:@[@(event), handler]];
 }
 
-- (BOOL)fireEvent:(IEventType)event{
+- (void)fireEvent:(IEventType)event{
 	_event = event;
-	void (^handler)(IEventType, IView *);
-	if(event == IEventHighlight){
-		handler = _highlightHandler;
 
-		_needRenderOnUnhighlight = NO;
-		IStyleSheet *sheet = self.inheritedStyleSheet;
-		if(sheet){
-			for(ICssRule *rule in sheet.rules){
-//				log_debug(@"%@ %d %d", rule, [rule containsPseudoClass], [rule matchView:self]);
-				if([rule containsPseudoClass] && [rule matchView:self]){
-					_needRenderOnUnhighlight = YES;
-					[self.style renderAllCss];
-					break;
-				}
+	[self.style renderAllCss];
+	
+	if(_eventHandlers){
+		void (^handler)(IEventType, IView *);
+		for(NSArray *arr in _eventHandlers){
+			NSNumber *num = arr.firstObject;
+			handler = arr.lastObject;
+			if(event == num.intValue){
+				handler(event, self);
 			}
 		}
 	}
-	if(event == IEventUnhighlight){
-		handler = _unhighlightHandler;
-		if(_needRenderOnUnhighlight){
-			[self.style renderAllCss];
-		}
-	}
-	if(event == IEventClick){
-		handler = _clickHandler;
-	}
-	if(handler){
-		handler(event, self);
-		return YES;
-	}
-	return NO;
 }
 
 - (void)fireHighlightEvent{
@@ -466,10 +442,10 @@
 
 - (void)mouseUp:(NSEvent *)event{
 	if(_event == IEventHighlight){
-//		[self performSelector:@selector(fireUnhighlightEvent) withObject:nil afterDelay:0.15];
 		[self fireEvent:IEventUnhighlight];
 		[self fireEvent:IEventClick];
 	}
+	[self fireEvent:IEventHover];
 }
 
 - (void)mouseDragged:(NSEvent *)event{

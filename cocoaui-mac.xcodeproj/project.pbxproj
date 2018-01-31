@@ -29,7 +29,6 @@
 		3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAD420208DE200DDEFE6 /* IStyle.h */; };
 		3196DAE220208DE200DDEFE6 /* IFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD520208DE200DDEFE6 /* IFlowLayout.m */; };
 		3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAD620208DE200DDEFE6 /* ICssBlock.m */; };
-		3196DAEC20208F5E00DDEFE6 /* UIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAEA20208F5E00DDEFE6 /* UIView.h */; };
 		3196DAF52020908E00DDEFE6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAF42020908E00DDEFE6 /* AppDelegate.m */; };
 		3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3196DAF62020908E00DDEFE6 /* Assets.xcassets */; };
 		3196DAFA2020908E00DDEFE6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DAF82020908E00DDEFE6 /* MainMenu.xib */; };
@@ -38,7 +37,6 @@
 		3196DB06202090CC00DDEFE6 /* TestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB04202090CC00DDEFE6 /* TestWindow.xib */; };
 		3196DB0C20209D8000DDEFE6 /* alex.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196DB0B20209D8000DDEFE6 /* alex.png */; };
 		3196DB0E20209E9600DDEFE6 /* libcocoaui-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */; };
-		3196DB102020A8B400DDEFE6 /* UIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DAE920208F5E00DDEFE6 /* UIView.m */; };
 		3196DB1C2021680E00DDEFE6 /* INSXmlViewLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB142021680E00DDEFE6 /* INSXmlViewLoader.h */; };
 		3196DB1D2021680E00DDEFE6 /* IViewLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB152021680E00DDEFE6 /* IViewLoader.h */; };
 		3196DB1F2021680E00DDEFE6 /* DTHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB172021680E00DDEFE6 /* DTHTMLParser.h */; };
@@ -51,8 +49,6 @@
 		3196DB2920216A6200DDEFE6 /* IViewLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB132021680E00DDEFE6 /* IViewLoader.m */; };
 		3196DB2D20216AAF00DDEFE6 /* IImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB2B20216AAF00DDEFE6 /* IImage.h */; };
 		3196DB2E20216AAF00DDEFE6 /* IImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB2C20216AAF00DDEFE6 /* IImage.m */; };
-		3196DB3120216C4100DDEFE6 /* UIImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB2F20216C4100DDEFE6 /* UIImageView.h */; };
-		3196DB3220216C4100DDEFE6 /* UIImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB3020216C4100DDEFE6 /* UIImageView.m */; };
 		3196DB3520216D5F00DDEFE6 /* UILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB3320216D5E00DDEFE6 /* UILabel.m */; };
 		3196DB3620216D5F00DDEFE6 /* UILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DB3420216D5E00DDEFE6 /* UILabel.h */; };
 		3196DB3920216DA800DDEFE6 /* ILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DB3720216DA700DDEFE6 /* ILabel.m */; };
@@ -85,8 +81,6 @@
 		3196DAD420208DE200DDEFE6 /* IStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStyle.h; sourceTree = "<group>"; };
 		3196DAD520208DE200DDEFE6 /* IFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFlowLayout.m; sourceTree = "<group>"; };
 		3196DAD620208DE200DDEFE6 /* ICssBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICssBlock.m; sourceTree = "<group>"; };
-		3196DAE920208F5E00DDEFE6 /* UIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView.m; sourceTree = "<group>"; };
-		3196DAEA20208F5E00DDEFE6 /* UIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView.h; sourceTree = "<group>"; };
 		3196DAF12020908E00DDEFE6 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3196DAF32020908E00DDEFE6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3196DAF42020908E00DDEFE6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -111,8 +105,6 @@
 		3196DB23202168B700DDEFE6 /* IResourceMananger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IResourceMananger.m; sourceTree = "<group>"; };
 		3196DB2B20216AAF00DDEFE6 /* IImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IImage.h; sourceTree = "<group>"; };
 		3196DB2C20216AAF00DDEFE6 /* IImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IImage.m; sourceTree = "<group>"; };
-		3196DB2F20216C4100DDEFE6 /* UIImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIImageView.h; sourceTree = "<group>"; };
-		3196DB3020216C4100DDEFE6 /* UIImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIImageView.m; sourceTree = "<group>"; };
 		3196DB3320216D5E00DDEFE6 /* UILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabel.m; sourceTree = "<group>"; };
 		3196DB3420216D5E00DDEFE6 /* UILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabel.h; sourceTree = "<group>"; };
 		3196DB3720216DA700DDEFE6 /* ILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ILabel.m; sourceTree = "<group>"; };
@@ -205,10 +197,6 @@
 		3196DAE420208E8200DDEFE6 /* cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				3196DAEA20208F5E00DDEFE6 /* UIView.h */,
-				3196DAE920208F5E00DDEFE6 /* UIView.m */,
-				3196DB2F20216C4100DDEFE6 /* UIImageView.h */,
-				3196DB3020216C4100DDEFE6 /* UIImageView.m */,
 				3196DB3420216D5E00DDEFE6 /* UILabel.h */,
 				3196DB3320216D5E00DDEFE6 /* UILabel.m */,
 			);
@@ -286,7 +274,6 @@
 				3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */,
 				3196DADE20208DE200DDEFE6 /* ICssRule.h in Headers */,
 				3196DB2D20216AAF00DDEFE6 /* IImage.h in Headers */,
-				3196DB3120216C4100DDEFE6 /* UIImageView.h in Headers */,
 				3196DAC420208CB700DDEFE6 /* IView.h in Headers */,
 				3196DB24202168B700DDEFE6 /* IResourceMananger.h in Headers */,
 				3196DAE120208DE200DDEFE6 /* IStyle.h in Headers */,
@@ -303,7 +290,6 @@
 				3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */,
 				3196DADC20208DE200DDEFE6 /* IFlowLayout.h in Headers */,
 				3196DB1D2021680E00DDEFE6 /* IViewLoader.h in Headers */,
-				3196DAEC20208F5E00DDEFE6 /* UIView.h in Headers */,
 				3196DB3620216D5F00DDEFE6 /* UILabel.h in Headers */,
 				3196DB212021680E00DDEFE6 /* IDTHTMLViewLoader.h in Headers */,
 			);
@@ -411,10 +397,8 @@
 				3196DB2920216A6200DDEFE6 /* IViewLoader.m in Sources */,
 				3196DB3520216D5F00DDEFE6 /* UILabel.m in Sources */,
 				3196DB2820216A5E00DDEFE6 /* INSXmlViewLoader.m in Sources */,
-				3196DB3220216C4100DDEFE6 /* UIImageView.m in Sources */,
 				3196DB2720216A5E00DDEFE6 /* IDTHTMLViewLoader.m in Sources */,
 				3196DADA20208DE200DDEFE6 /* IStyle.m in Sources */,
-				3196DB102020A8B400DDEFE6 /* UIView.m in Sources */,
 				3196DADB20208DE200DDEFE6 /* IStyleSheet.m in Sources */,
 				3196DB2620216A5E00DDEFE6 /* DTHTMLParser.m in Sources */,
 				3196DB3920216DA800DDEFE6 /* ILabel.m in Sources */,

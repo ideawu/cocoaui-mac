@@ -35,7 +35,6 @@
 @property (readonly) void (^clickHandler)(IEventType, IView *);
 @property (nonatomic) IEventType event;
 
-- (void)setDataInternal:(id)data;
 - (void)addUIView:(UIView *)view;
 
 - (NSString *)name;

@@ -87,12 +87,16 @@
 
 - (BOOL)selector:(NSString *)selector matchView:(IView *)view{
 	if([selector rangeOfString:@":"].length > 0){
+		NSString *clz = nil;
 		if(view.event == IEventHighlight){
+			clz = @"active";
+		}else if(view.event == IEventHover){
+			clz = @"hover";
+		}
+
+		if(clz){
 			NSArray *ps = [selector componentsSeparatedByString:@":"];
-			if(![self selector:ps[0] matchView:view]){
-				return NO;
-			}
-			if([ps[1] isEqualToString:@"hover"] || [ps[1] isEqualToString:@"active"]){
+			if([ps[1] isEqualToString:clz] && [self selector:ps[0] matchView:view]){
 				return YES;
 			}
 		}

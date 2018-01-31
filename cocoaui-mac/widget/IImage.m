@@ -58,12 +58,7 @@
 - (UIImageView *)imageView{
 	if(!_imageView){
 		_imageView = [[UIImageView alloc] init];
-//		_imageView.contentMode = UIViewContentModeScaleToFill;
-//		_imageView.wantsLayer = YES;
-//		_imageView.layer = [[CALayer alloc] init];
-//		_imageView.layer.contentsGravity = kCAGravityResizeAspectFill;
-//		_imageView.layer.contents = image;
-		[self addUIView:(UIView *)_imageView];
+		[self addUIView:_imageView];
 	}
 	return _imageView;
 }
@@ -73,7 +68,7 @@
 		[_imageView removeFromSuperview];
 	}
 	_imageView = imageView;
-	[self addUIView:(UIView *)_imageView];
+	[self addUIView:_imageView];
 }
 
 - (void)drawRect:(CGRect)rect {

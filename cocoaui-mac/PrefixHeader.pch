@@ -15,9 +15,10 @@
 #import <AppKit/AppKit.h>
 #import "TargetConditionals.h"
 
-#import "UIView.h"
-#import "UIImageView.h"
 #import "UILabel.h"
+
+#define UIView NSView
+#define UIImageView NSImageView
 
 #define NSStringFromCGRect NSStringFromRect
 #	define UIImage NSImage

@@ -30,9 +30,10 @@ typedef enum{
 
 @class ITable;
 
-@interface IView : UIView
+@interface IView : NSView
 
 @property (nonatomic, readonly) IStyle *style;
+@property (nonatomic) NSColor *backgroundColor;
 
 + (IView *)viewWithUIView:(UIView *)view;
 + (IView *)viewWithUIView:(UIView *)view style:(NSString *)css;
@@ -40,13 +41,6 @@ typedef enum{
 + (IView *)namedView:(NSString *)name;
 + (IView *)viewFromXml:(NSString *)xml;
 + (IView *)viewWithContentsOfFile:(NSString *)path;
-
-- (id)data;
-/**
- * Called when this IView is used as ITable row being shown.
- * Override this method when IView is used as ITable row(MUST call [super setData])
- */
-- (void)setData:(id)data;
 
 // only available when init with xml or file
 - (IView *)getViewById:(NSString *)vid;
@@ -56,12 +50,6 @@ typedef enum{
  * apply style on the added view.
  */
 - (void)addSubview:(UIView *)view style:(NSString *)css;
-/**
- * This method will traverse up the view hierarchy to find and return
- * the first UIViewController, if not any found, it will return nil.
- */
-- (UIViewController *)viewController;
-
 
 - (void)show;
 - (void)hide;
@@ -75,7 +63,7 @@ typedef enum{
 /**
  * event can not be combined.
  */
-- (BOOL)fireEvent:(IEventType)event;
+- (void)fireEvent:(IEventType)event;
 
 /**
  * 一般不需要调用本方法, 自定义控件重写本方法.

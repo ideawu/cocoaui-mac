@@ -15,14 +15,9 @@
 #import "IKitUtil.h"
 #import "IStyle.h"
 #import "IView.h"
-#import "ITable.h"
-#import "ITableRow.h"
 #import "ILabel.h"
-#import "IInput.h"
-#import "IButton.h"
-#import "ISwitch.h"
-#import "ISelect.h"
 #import "IImage.h"
-#import "IRefreshControl.h"
+
+#import "UILabel.h"
 
 #endif
