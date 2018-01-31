@@ -13,11 +13,16 @@
 #import "IStyle.h"
 
 typedef enum{
+	IViewStateNone     = 0,
+	IViewStateHover    = 1<<0,
+	IViewStateDown     = 1<<1,
+	IViewStateActive   = 1<<2,
+}IViewState;
+
+typedef enum{
 	IEventUnhighlight  = 1<<0,
 	IEventHighlight    = 1<<1,
 	IEventClick        = 1<<2,
-	IEventDragged      = 1<<3,
-	IEventReturn       = 1<<4,
 	IEventHover        = 1<<5,
 	IEventUnhover      = 1<<6,
 }IEventType;

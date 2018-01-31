@@ -407,9 +407,29 @@
 }
 
 - (void)fireEvent:(IEventType)event{
-	_event = event;
-
-	[self.style renderAllCss];
+	NSString *name = nil;
+	switch (event) {
+		case IEventHighlight:
+			name = @"IEventHighlight";
+			break;
+		case IEventUnhighlight:
+			name = @"IEventUnhighlight";
+			break;
+		case IEventHover:
+			name = @"IEventHover";
+			break;
+		case IEventUnhover:
+			name = @"IEventUnhover";
+			break;
+		case IEventClick:
+			name = @"IEventClick";
+			break;
+	}
+	if(name){
+		if([self.name rangeOfString:@"span"].length != 0){
+			log_debug(@"%@ event: %@", self.name, name);
+		}
+	}
 	
 	if(_eventHandlers){
 		void (^handler)(IEventType, IView *);
@@ -421,6 +441,21 @@
 			}
 		}
 	}
+
+	[self.style renderAllCss];
+
+//	IStyleSheet *sheet = self.inheritedStyleSheet;
+//	if(sheet){
+//		for(ICssRule *rule in sheet.rules){
+//			if([rule containsPseudoClass] && [rule matchView:self]){
+//				[self.style renderAllCss];
+//				break;
+//			}
+//		}
+//		if(_event == IEventUnhover || _event == IEventUnhighlight){
+//			[self.style renderAllCss];
+//		}
+//	}
 }
 
 - (void)fireHighlightEvent{
@@ -437,33 +472,102 @@
 
 
 - (void)mouseDown:(NSEvent *)event{
+//	if([self.name rangeOfString:@"span"].length != 0){
+//		log_debug(@"%s %@", __func__, self);
+//	}
+	[self setState:IViewStateDown];
+	if([self hasState:IViewStateHover]){
+		[self delState:IViewStateHover];
+		[self fireEvent:IEventUnhover];
+	}
+	[self setState:IViewStateActive];
 	[self fireEvent:IEventHighlight];
+	
+	BOOL prevInside = YES;
+	NSPoint point;
+	while (1) {
+		event = [[self window] nextEventMatchingMask:(NSEventMaskLeftMouseDragged | NSEventMaskLeftMouseUp)];
+		point = [self convertPoint:[event locationInWindow] fromView: nil];
+
+		BOOL inside = [self mouse:point inRect:self.bounds];
+		if(prevInside && !inside){
+			[self mouseExited:event];
+		}else if(!prevInside && inside){
+			[self mouseEntered:event];
+		}
+		prevInside = inside;
+		
+		[self mouseDragged:event];
+		
+		if([event type] == NSEventTypeLeftMouseUp){
+			if(!inside){
+				[self delState:IViewStateDown];
+			}
+			[self mouseUp:event];
+			break;
+		}
+	}
 }
 
 - (void)mouseUp:(NSEvent *)event{
-	if(_event == IEventHighlight){
+//	if([self.name rangeOfString:@"span"].length != 0){
+//		log_debug(@"%s %@", __func__, self);
+//	}
+	if([self hasState:IViewStateDown]){
+		[self delState:IViewStateActive];
 		[self fireEvent:IEventUnhighlight];
+		[self delState:IViewStateDown];
 		[self fireEvent:IEventClick];
 	}
-	[self fireEvent:IEventHover];
 }
 
 - (void)mouseDragged:(NSEvent *)event{
-	if(_event == IEventHighlight){
-		[self fireEvent:IEventUnhighlight];
-	}
-	[self fireEvent:IEventDragged];
 }
 
 - (void)mouseMoved:(NSEvent *)event{
+	if(![self hasState:IViewStateHover]){
+		[self setState:IViewStateHover];
+		[self fireEvent:IEventHover];
+	}
 }
 
 - (void)mouseEntered:(NSEvent *)event{
-	[self fireEvent:IEventHover];
+//	if([self.name rangeOfString:@"span"].length != 0){
+//		log_debug(@"%s %@", __func__, self);
+//	}
+	if([self hasState:IViewStateDown]){
+		[self setState:IViewStateActive];
+		[self fireEvent:IEventHighlight];
+	}else{
+		[self setState:IViewStateHover];
+		[self fireEvent:IEventHover];
+	}
 }
 
 - (void)mouseExited:(NSEvent *)event{
-	[self fireEvent:IEventUnhover];
+//	if([self.name rangeOfString:@"span"].length != 0){
+//		log_debug(@"%s %@", __func__, self);
+//	}
+	if([self hasState:IViewStateHover]){
+		[self delState:IViewStateHover];
+		[self fireEvent:IEventUnhover];
+	}
+	if([self hasState:IViewStateActive]){
+		[self delState:IViewStateActive];
+		[self fireEvent:IEventUnhighlight];
+	}
+}
+
+- (void)setState:(IViewState)state{
+	_state |= state;
+}
+
+- (void)delState:(IViewState)state{
+	_state &= ~state;
+}
+
+- (BOOL)hasState:(IViewState)state{
+	return _state & state;
 }
 
 @end

@@ -33,7 +33,8 @@
 @property (readonly) void (^highlightHandler)(IEventType, IView *);
 @property (readonly) void (^unhighlightHandler)(IEventType, IView *);
 @property (readonly) void (^clickHandler)(IEventType, IView *);
-@property (nonatomic) IEventType event;
+@property (nonatomic) IViewState state;
+
 
 - (void)addUIView:(UIView *)view;
 
