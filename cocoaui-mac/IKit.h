@@ -10,8 +10,6 @@
 #ifndef IKit_h
 #define IKit_h
 
-#import <UIKit/UIKit.h>
-
 #import "IKitUtil.h"
 #import "IStyle.h"
 #import "IView.h"

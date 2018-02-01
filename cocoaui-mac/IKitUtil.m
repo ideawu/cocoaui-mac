@@ -60,7 +60,7 @@ static CGFloat colorVal(NSString *hex){
 			return [UIColor clearColor];
 			break;
 	}
-	return [UIColor colorWithRed: red green: green blue: blue alpha: alpha];
+	return [NSColor colorWithCalibratedRed:red green:green blue:blue alpha:alpha];
 }
 
 + (BOOL)isHTML:(NSString *)str{

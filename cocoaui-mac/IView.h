@@ -40,8 +40,8 @@ typedef enum{
 @property (nonatomic, readonly) IStyle *style;
 @property (nonatomic) NSColor *backgroundColor;
 
-+ (IView *)viewWithUIView:(UIView *)view;
-+ (IView *)viewWithUIView:(UIView *)view style:(NSString *)css;
++ (IView *)viewWithUIView:(NSView *)view;
++ (IView *)viewWithUIView:(NSView *)view style:(NSString *)css;
 
 + (IView *)namedView:(NSString *)name;
 + (IView *)viewFromXml:(NSString *)xml;
@@ -54,7 +54,7 @@ typedef enum{
  * Add a view(instance of UIView or IView subclass) into subviews list,
  * apply style on the added view.
  */
-- (void)addSubview:(UIView *)view style:(NSString *)css;
+- (void)addSubview:(NSView *)view style:(NSString *)css;
 
 - (void)show;
 - (void)hide;

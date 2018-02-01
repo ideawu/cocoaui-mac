@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31126D3E2022F87100FB07E7 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 31126D3D2022F87100FB07E7 /* images */; };
 		3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB720208CB700DDEFE6 /* IKitUtil.h */; };
 		3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB820208CB700DDEFE6 /* IMaskUIView.h */; };
 		3196DAC120208CB700DDEFE6 /* IKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB920208CB700DDEFE6 /* IKit.h */; };
@@ -84,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31126D3D2022F87100FB07E7 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocoaui-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3196DAB720208CB700DDEFE6 /* IKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKitUtil.h; sourceTree = "<group>"; };
 		3196DAB820208CB700DDEFE6 /* IMaskUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMaskUIView.h; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 		3196DAF22020908E00DDEFE6 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				31126D3D2022F87100FB07E7 /* images */,
 				3196DAF32020908E00DDEFE6 /* AppDelegate.h */,
 				3196DAF42020908E00DDEFE6 /* AppDelegate.m */,
 				3196DB02202090CC00DDEFE6 /* TestWindow.h */,
@@ -402,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31126D3E2022F87100FB07E7 /* images in Resources */,
 				3196DAF72020908E00DDEFE6 /* Assets.xcassets in Resources */,
 				3196DAFA2020908E00DDEFE6 /* MainMenu.xib in Resources */,
 				3197B8B12021845100A2FDE0 /* Test.xml in Resources */,
@@ -510,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -561,7 +565,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SYSTEM_HEADER_SEARCH_PATHS = "${SDKROOT}/usr/include/libxml2";

@@ -1,12 +1,51 @@
-<div style="border: 10px solid #f33;">
+<div style="border: 10px solid #f33; background: #ccc;">
+<!--	<div style="background: #666;">-->
+<!--		<img src="images/toolbar-18/flip_h.png" />-->
+<!--		</div>-->
 	<style>
-		.a:hover{
+		a:hover{
 			background: #ff0;
+		}
+		.icons img{
+			margin: 2px;
+			width: 24;
+			height: 24;
+		}
+		.icons img:hover{
+			background: #000;
+		}
+		#current_index{
+			margin: 2px 6px;
+			valign: middle;
+			font-size: 16px;
+			font-weight: bold;
+			color: #dd3;
 		}
 	</style>
 	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #cc3 url(alex.png);">
 	</div>
-	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: url(alex.png) repeat;">
+	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #666 url(alex.png) repeat;">
 	</div>
-	<span class="a" style="float: left; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</span>
+	
+	<br/>
+
+	<div class="icons" style="background: #444;">
+		<img src="images/toolbar-18/flip_h.png" />
+		<img src="images/toolbar-18/flip_v.png" />
+		<img src="images/toolbar-18/rotate_left.png" />
+		<img src="images/toolbar-18/rotate_right.png" />
+		<img src="images/toolbar-18/prev.png" />
+		<span id="current_index">1/1</span>
+		<img src="images/toolbar-18/next.png" />
+		<img src="images/toolbar-18/zoom_out.png" />
+		<img src="images/toolbar-18/zoom_in.png" />
+		<img src="images/toolbar-18/bestsize.png" />
+		<img src="images/toolbar-18/actualsize.png" />
+		<img src="images/toolbar-18/fillsize.png" />
+	</div>
+
+	<br/>
+
+	<a class="a" style="float: left; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</a>
+
 </div>

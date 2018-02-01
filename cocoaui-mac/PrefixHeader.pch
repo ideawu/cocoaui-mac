@@ -30,7 +30,7 @@
 #	define UIResponder NSResponder
 
 inline static CGContextRef UIGraphicsGetCurrentContext(){
-	return NSGraphicsContext.currentContext.CGContext;
+	return NSGraphicsContext.currentContext.graphicsPort;
 }
 
 inline static NSData* UIImagePNGRepresentation(NSImage *image){

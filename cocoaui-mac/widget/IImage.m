@@ -79,7 +79,6 @@
 
 - (void)layout{
 	//log_debug(@"%@ %s %@", self.name, __func__, _src);
-	[super layout];
 	
 	if(_imageView){
 		self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
@@ -110,6 +109,8 @@
 			[self.style setInnerWidth:w];
 		}
 	}
+	
+	[super layout];
 }
 
 @end

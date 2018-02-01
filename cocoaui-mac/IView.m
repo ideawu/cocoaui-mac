@@ -134,12 +134,13 @@
 - (void)viewDidEndLiveResize{
 	if(self.isRootView){
 		[[NSNotificationCenter defaultCenter] removeObserver:self];
+		[self reshape];
 	}
 }
 
 - (void)reshape{
 	if(self.isRootView){
-		[self setNeedsLayout];
+		[self setNeedsLayout:YES];
 	}
 }
 
@@ -161,7 +162,7 @@
 }
 
 - (void)updateTrackingAreas{
-	if(!_trackingArea){
+	if(_trackingArea){
 		[self removeTrackingArea:_trackingArea];
 	}
 	NSTrackingAreaOptions options = (NSTrackingActiveAlways | NSTrackingInVisibleRect |
@@ -193,13 +194,13 @@
 }
 
 - (void)addUIView:(UIView *)view{
-	[self setNeedsLayout];
+	[self setNeedsLayout:YES];
 	_contentView = view;
 	[super addSubview:view];
 }
 
 - (void)addSubview:(UIView *)view style:(NSString *)css{
-	[self setNeedsLayout];
+	[self setNeedsLayout:YES];
 	IView *sub;
 	if([[view class] isSubclassOfClass:[IView class]]){
 		sub = (IView *)view;
@@ -273,7 +274,7 @@
 }
 
 - (NSString *)name{
-	return [NSString stringWithFormat:@"%*s%-2d.%@", self.level*2, "", self.seq, self.style.tagName];
+	return [NSString stringWithFormat:@"%*s%-2d-%@", self.level*2, "", self.seq, self.style.tagName];
 }
 
 - (void)show{
@@ -300,17 +301,20 @@
 	return ((!_subs || _subs.count == 0) && _contentView);
 }
 
-- (void)setNeedsLayout{
-	//log_debug(@"%@ %s", self.name, __FUNCTION__);
-	_need_layout = true;
-	
-	if(self.isPrimativeView){
-		self.needsLayout = YES;
-	}
-	if(self.parent){
-		[self.parent setNeedsLayout];
+- (void)setNeedsLayout:(BOOL)needsLayout{
+	if(needsLayout){
+		_need_layout = true;
+		
+		if(self.isPrimativeView){
+			super.needsLayout = YES;
+		}
+		if(self.parent){
+			[self.parent setNeedsLayout:YES];
+		}else{
+			super.needsLayout = YES;
+		}
 	}else{
-		self.needsLayout = YES;
+		[super setNeedsLayout:NO];
 	}
 }
 
@@ -346,15 +350,15 @@
 
 - (void)layoutSubviews{
 	//log_debug(@"%@ %s", self.name, __func__);
-	if(!_need_layout){
-		return;
-	}
-	if(_style.resizeWidth){
-		if(!self.isRootView && !self.isPrimativeView){
-			//log_debug(@"return %@ %s parent: %@", self.name, __FUNCTION__, self.parent.name);
-			return;
-		}
-	}
+//	if(!_need_layout){
+//		return;
+//	}
+//	if(_style.resizeWidth){
+//		if(!self.isRootView && !self.isPrimativeView){
+//			//log_debug(@"return %@ %s parent: %@", self.name, __FUNCTION__, self.parent.name);
+//			return;
+//		}
+//	}
 //	log_debug(@"%d %s begin %@", _seq, __FUNCTION__, NSStringFromCGRect(_style.rect));
 	[_layouter layout];
 //	log_debug(@"%d %s end %@", _seq, __FUNCTION__, NSStringFromCGRect(_style.rect));
@@ -431,7 +435,7 @@
 //			break;
 //	}
 //	if(name){
-//		if([self.name rangeOfString:@"span"].length != 0){
+//		if([self.name rangeOfString:@"a"].length != 0){
 //			log_debug(@"%@ event: %@", self.name, name);
 //		}
 //	}
@@ -538,7 +542,7 @@
 }
 
 - (void)mouseEntered:(NSEvent *)event{
-//	if([self.name rangeOfString:@"span"].length != 0){
+//	if([self.name rangeOfString:@"a"].length != 0){
 //		log_debug(@"%s %@", __func__, self);
 //	}
 	if([self hasState:IViewStateDown]){

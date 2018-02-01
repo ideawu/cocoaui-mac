@@ -8,6 +8,7 @@
  */
 
 #import "IView.h"
+#import "UILabel.h"
 
 @interface ILabel : IView
 

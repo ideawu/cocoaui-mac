@@ -14,7 +14,7 @@
 
 @interface IKitUtil : NSObject
 
-+ (UIColor *) colorFromHex:(NSString *)hex;
++ (NSColor *) colorFromHex:(NSString *)hex;
 
 + (BOOL)isHTML:(NSString *)str;
 + (BOOL)isHttpUrl:(NSString *)src;
@@ -25,7 +25,7 @@
 + (NSString *)buildPath:(NSString *)basePath src:(NSString *)src;
 
 + (BOOL)isDataURI:(NSString *)src;
-+ (UIImage *)loadImageFromDataURI:(NSString *)src;
++ (NSImage *)loadImageFromDataURI:(NSString *)src;
 
 + (NSString *)trim:(NSString *)str;
 + (NSArray *)split:(NSString *)str;

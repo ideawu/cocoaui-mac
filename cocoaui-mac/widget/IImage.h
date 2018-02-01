@@ -11,10 +11,10 @@
 
 @interface IImage : IView
 
-@property (nonatomic) UIImageView *imageView;
+@property (nonatomic) NSImageView *imageView;
 
 @property (nonatomic) NSString *src;
-@property (nonatomic) UIImage *image;
+@property (nonatomic) NSImage *image;
 
 + (IImage *)imageNamed:(NSString *)name;
 
