@@ -29,6 +29,7 @@
 @property (nonatomic) BOOL need_layout;
 @property (nonatomic) IMaskUIView *maskView;
 @property (nonatomic) NSMutableArray *eventHandlers;
+@property NSView *backgroundView;
 @end
 
 @implementation IView
@@ -112,6 +113,11 @@
 	
 	_need_layout = true;
 	_layouter = [IFlowLayout layoutWithView:self];
+	
+	_backgroundView = [[NSView alloc] init];
+	_backgroundView.wantsLayer = YES;
+	[super addSubview:_backgroundView];
+	
 	_maskView = [[IMaskUIView alloc] init];
 	[super addSubview:_maskView];
 }
@@ -320,16 +326,13 @@
 
 	if(_style.backgroundImage){
 		UIImage *img = _style.backgroundImage;
-		CGRect imgRect = CGRectMake(0, 0, img.size.width, img.size.height);
 		if(_style.backgroundRepeat){
-			self.layer.backgroundColor = [UIColor colorWithPatternImage:img].CGColor;
+			_backgroundView.layer.geometryFlipped = NO;
+			_backgroundView.layer.backgroundColor = [UIColor colorWithPatternImage:img].CGColor;
 		}else{
-			[img drawInRect:imgRect
-				   fromRect:imgRect
-				  operation:NSCompositingOperationSourceOver
-				   fraction:1
-			 respectFlipped:YES
-					  hints:nil];
+			_backgroundView.layer.contents = img;
+			_backgroundView.layer.contentsGravity = @"topLeft";
+			_backgroundView.layer.contentsScale = 1;
 		}
 	}
 }
@@ -389,7 +392,9 @@
 		_maskView.frame = self.bounds;
 		_maskView.needsDisplay = YES;
 	}
-//		[self bringSubviewToFront:_maskView];
+	
+	_backgroundView.frame = self.bounds;
+	_backgroundView.needsDisplay = YES;
 }
 
 

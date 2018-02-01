@@ -176,14 +176,10 @@ static IResourceMananger *_sharedMananger;
 	}else if(![src isEqual:@""]){
 		if([src characterAtIndex:0] != '/'){
 			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
-		}else if([src rangeOfString:[NSBundle mainBundle].resourcePath].length > 0){
-			src = [src substringFromIndex:[NSBundle mainBundle].resourcePath.length + 1];
-			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
 		}else{
-			NSData *data = [NSData dataWithContentsOfFile:src];
-			img = [[UIImage alloc] initWithData:data];
+			img = [[UIImage alloc] initWithContentsOfFile:src];
 		}
-		log_debug(@"load img from local: %@", src);
+//		log_debug(@"load img from local: %@", src);
 		if(img){
 			if(callback){
 				callback(img);

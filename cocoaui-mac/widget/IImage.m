@@ -52,6 +52,7 @@
 - (void)setImage:(UIImage *)image{
 	_image = image;
 	[self.imageView setImage:_image];
+	self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
 	self.needsLayout = YES;
 }
 
@@ -81,7 +82,7 @@
 	[super layout];
 	
 	if(_imageView){
-		[_imageView sizeToFit];
+		self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
 		if(self.style.resizeWidth){
 			//log_debug(@"width: %f", _imageView.frame.size.width);
 			[self.style setInnerWidth:_imageView.frame.size.width];
