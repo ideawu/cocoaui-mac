@@ -8,9 +8,9 @@
 		}
 		.icons{float: center; valign: middle;}
 		.icons img, .icons div{
-			padding: 2px;
-			width: 24;
-			height: 24;
+			padding: 6;
+			width: 124;
+<!--			height: 24;-->
 		}
 		.icons img:hover{
 			background: #000;
@@ -33,17 +33,17 @@
 	<div class="icons" style="background: #444;">
 		<div></div>
 		<img src="images/toolbar-18/flip_h.png" />
-		<img src="images/toolbar-18/flip_v.png" />
-		<img src="images/toolbar-18/rotate_left.png" />
-		<img src="images/toolbar-18/rotate_right.png" />
-		<img src="images/toolbar-18/prev.png" />
-		<span id="current_index">1/1</span>
-		<img src="images/toolbar-18/next.png" />
-		<img src="images/toolbar-18/zoom_out.png" />
-		<img src="images/toolbar-18/zoom_in.png" />
-		<img src="images/toolbar-18/bestsize.png" />
-		<img src="images/toolbar-18/actualsize.png" />
-		<img src="images/toolbar-18/fillsize.png" />
+<!--		<img src="images/toolbar-18/flip_v.png" />-->
+<!--		<img src="images/toolbar-18/rotate_left.png" />-->
+<!--		<img src="images/toolbar-18/rotate_right.png" />-->
+<!--		<img src="images/toolbar-18/prev.png" />-->
+<!--		<span id="current_index">1/1</span>-->
+<!--		<img src="images/toolbar-18/next.png" />-->
+<!--		<img src="images/toolbar-18/zoom_out.png" />-->
+<!--		<img src="images/toolbar-18/zoom_in.png" />-->
+<!--		<img src="images/toolbar-18/bestsize.png" />-->
+<!--		<img src="images/toolbar-18/actualsize.png" />-->
+<!--		<img src="images/toolbar-18/fillsize.png" />-->
 	</div>
 
 <!--	<br/>-->

@@ -517,6 +517,9 @@
 				[self delState:IViewStateDown];
 			}
 			[self mouseUp:event];
+			if(inside){
+				[self mouseEntered:event];
+			}
 			break;
 		}else{
 			[self mouseDragged:event];

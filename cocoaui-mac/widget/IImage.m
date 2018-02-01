@@ -51,6 +51,7 @@
 
 - (void)setImage:(UIImage *)image{
 	_image = image;
+	[self.imageView setImageScaling:NSScaleToFit];
 	[self.imageView setImage:_image];
 	self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
 	self.needsLayout = YES;
