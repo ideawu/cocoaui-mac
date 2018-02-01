@@ -6,8 +6,9 @@
 		a:hover{
 			background: #ff0;
 		}
-		.icons img{
-			margin: 2px;
+		.icons{float: center; valign: middle;}
+		.icons img, .icons div{
+			padding: 2px;
 			width: 24;
 			height: 24;
 		}
@@ -22,14 +23,15 @@
 			color: #dd3;
 		}
 	</style>
-	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #cc3 url(alex.png);">
-	</div>
-	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #666 url(alex.png) repeat;">
-	</div>
-	
-	<br/>
+<!--	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #cc3 url(alex.png);">-->
+<!--	</div>-->
+<!--	<div style="width: 300; height: 100; margin: 0; border: 1px solid #000; background: #666 url(alex.png) repeat;">-->
+<!--	</div>-->
+<!--	-->
+<!--	<br/>-->
 
 	<div class="icons" style="background: #444;">
+		<div></div>
 		<img src="images/toolbar-18/flip_h.png" />
 		<img src="images/toolbar-18/flip_v.png" />
 		<img src="images/toolbar-18/rotate_left.png" />
@@ -44,8 +46,8 @@
 		<img src="images/toolbar-18/fillsize.png" />
 	</div>
 
-	<br/>
-
-	<a class="a" style="float: left; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</a>
+<!--	<br/>-->
+<!---->
+<a class="a" style="float: center; valign: middle; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</a>
 
 </div>

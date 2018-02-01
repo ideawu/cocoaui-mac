@@ -343,6 +343,11 @@
 
 - (void)layout{
 	[super layout];
+	if(self.isRootView){
+		_style.size = self.superview.bounds.size;
+		self.frame = self.superview.bounds;
+	}
+	
 //	log_debug(@"%@ layout begin %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
 	[self layoutSubviews];
 //	log_debug(@"%@ layout end %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
@@ -378,15 +383,15 @@
 
 - (void)updateFrame{
 //	log_debug(@"%@ %s %@=>%@", self.name, __FUNCTION__, NSStringFromRect(self.frame), NSStringFromRect(_style.rect));
-	CGRect frame = _style.rect;
 //	if(!self.superview.isFlipped){
 //		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
 //	}
 	if(self.isRootView){
-		frame = self.superview.bounds;
+		//
+	}else{
+		self.frame = _style.rect;
 	}
 	
-	self.frame = frame;
 	self.hidden = _style.hidden;
 	self.needsDisplay = YES;
 
@@ -546,11 +551,15 @@
 //		log_debug(@"%s %@", __func__, self);
 //	}
 	if([self hasState:IViewStateDown]){
-		[self setState:IViewStateActive];
-		[self fireEvent:IEventHighlight];
+		if(![self hasState:IViewStateActive]){
+			[self setState:IViewStateActive];
+			[self fireEvent:IEventHighlight];
+		}
 	}else{
-		[self setState:IViewStateHover];
-		[self fireEvent:IEventHover];
+		if(![self hasState:IViewStateHover]){
+			[self setState:IViewStateHover];
+			[self fireEvent:IEventHover];
+		}
 	}
 }
 
