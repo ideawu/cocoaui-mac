@@ -20,8 +20,7 @@
 		width: 40;
 		text-align: center;
 		valign: middle;
-		font-size: 18;
-		font-weight: bold;
+		font-size: 20;
 		color: #cc3;
 		}
 	</style>
@@ -37,7 +36,7 @@
 <!--		<img src="images/toolbar-18/rotate_left.png" />-->
 <!--		<img src="images/toolbar-18/rotate_right.png" />-->
 <!--		<img src="images/toolbar-18/prev.png" />-->
-<!--		<span id="current_index">1/1</span>-->
+		<span id="current_index">1/1</span>
 <!--		<img src="images/toolbar-18/next.png" />-->
 <!--		<img src="images/toolbar-18/minus.png" />-->
 <!--		<img src="images/toolbar-18/plus.png" />-->

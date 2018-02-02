@@ -679,11 +679,22 @@
 			_font = [UIFont systemFontOfSize:_fontSize];
 		}
 	}else{
+//		_font = [[NSFontManager sharedFontManager] fontWithFamily:f
+//														   traits:traits
+//														   weight:1
+//															 size:_fontSize];
+
 		if([_fontWeight isEqualToString:@"bold"]){
-			NSString *f = [NSString stringWithFormat:@"%@-bold", _fontFamily];
+			NSString *f = [NSString stringWithFormat:@"%@ bold", _fontFamily];
 			_font = [UIFont fontWithName:f size:_fontSize];
+			if(!_font){
+				_font = [UIFont boldSystemFontOfSize:_fontSize];
+			}
 		}else{
 			_font = [UIFont fontWithName:_fontFamily size:_fontSize];
+			if(!_font){
+				_font = [UIFont systemFontOfSize:_fontSize];
+			}
 		}
 	}
 }
