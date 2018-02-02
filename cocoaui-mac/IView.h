@@ -39,6 +39,7 @@ typedef enum{
 
 @property (nonatomic, readonly) IStyle *style;
 @property (nonatomic) NSColor *backgroundColor;
+@property (nonatomic) IViewState state;
 
 + (IView *)viewWithUIView:(NSView *)view;
 + (IView *)viewWithUIView:(NSView *)view style:(NSString *)css;
