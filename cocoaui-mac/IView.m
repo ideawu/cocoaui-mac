@@ -95,9 +95,8 @@
 	static BOOL inited = NO;
 	if(!inited){
 		inited = YES;
-		NSString *copyright = @"Copyright(c)2015-2016 CocoaUI. All rights reserved.";
 		// TODO: if(md5(copyright) != ""){exit();}
-		log_info(@"%@ version: %s", copyright, VERSION);
+		log_info(@"%s version: %s", COPYRIGHT, VERSION);
 		//NSString* appid = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
 		//log_debug(@"%@", appid);
 	}

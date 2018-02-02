@@ -10,7 +10,7 @@
 #ifndef IKit_PrefixHeader_pch
 #define IKit_PrefixHeader_pch
 
-#define VER_NUM  "1.2.7"
+#define VER_NUM  "1.0.0"
 
 #import <AppKit/AppKit.h>
 #import "TargetConditionals.h"
@@ -55,12 +55,13 @@ inline static CGRect UIEdgeInsetsInsetRect(CGRect rect, UIEdgeInsets insets) {
 #define L_MYLOG(level, fmt, args...) \
 	my_log((level @" %@(%d): " fmt), [@(__FILE__) lastPathComponent],  __LINE__, ##args)
 
+#define COPYRIGHT "Copyright(c)2015-2018 CocoaUI. All rights reserved."
 #ifdef DEBUG
-#	define VERSION  VER_NUM "(for development only)"
+#	define VERSION  VER_NUM "(for macOS development only)"
 #	define log_trace(...) L_MYLOG(@"[TRACE]", __VA_ARGS__)
 #	define log_debug(...) L_MYLOG(@"[DEBUG]", __VA_ARGS__)
 #else
-#	define VERSION  VER_NUM "(for production)"
+#	define VERSION  VER_NUM "(for macOS production)"
 #	define log_trace(...)
 #	define log_debug(...)
 #endif
