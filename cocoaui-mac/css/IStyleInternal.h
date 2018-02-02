@@ -116,6 +116,7 @@ typedef enum{
 
 @property (nonatomic, readonly) UIEdgeInsets margin;
 @property (nonatomic, readonly) UIEdgeInsets padding;
+@property (nonatomic, readonly) UIEdgeInsets borderEdge;
 
 @property (nonatomic, readonly) IStyleBorderDrawType borderDrawType;
 @property (nonatomic, readonly) CGFloat borderRadius;

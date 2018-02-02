@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		31126D3E2022F87100FB07E7 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 31126D3D2022F87100FB07E7 /* images */; };
 		3196DABF20208CB700DDEFE6 /* IKitUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB720208CB700DDEFE6 /* IKitUtil.h */; };
-		3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB820208CB700DDEFE6 /* IMaskUIView.h */; };
 		3196DAC120208CB700DDEFE6 /* IKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DAB920208CB700DDEFE6 /* IKit.h */; };
 		3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABA20208CB700DDEFE6 /* IKitUtil.m */; };
-		3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABB20208CB700DDEFE6 /* IMaskUIView.m */; };
 		3196DAC420208CB700DDEFE6 /* IView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DABC20208CB700DDEFE6 /* IView.h */; };
 		3196DAC520208CB700DDEFE6 /* IViewInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3196DABD20208CB700DDEFE6 /* IViewInternal.h */; };
 		3196DAC620208CB700DDEFE6 /* IView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196DABE20208CB700DDEFE6 /* IView.m */; };
@@ -88,10 +86,8 @@
 		31126D3D2022F87100FB07E7 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		3196DAAB20208C7F00DDEFE6 /* libcocoaui-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocoaui-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3196DAB720208CB700DDEFE6 /* IKitUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKitUtil.h; sourceTree = "<group>"; };
-		3196DAB820208CB700DDEFE6 /* IMaskUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMaskUIView.h; sourceTree = "<group>"; };
 		3196DAB920208CB700DDEFE6 /* IKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKit.h; sourceTree = "<group>"; };
 		3196DABA20208CB700DDEFE6 /* IKitUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKitUtil.m; sourceTree = "<group>"; };
-		3196DABB20208CB700DDEFE6 /* IMaskUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMaskUIView.m; sourceTree = "<group>"; };
 		3196DABC20208CB700DDEFE6 /* IView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IView.h; sourceTree = "<group>"; };
 		3196DABD20208CB700DDEFE6 /* IViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IViewInternal.h; sourceTree = "<group>"; };
 		3196DABE20208CB700DDEFE6 /* IView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IView.m; sourceTree = "<group>"; };
@@ -190,8 +186,6 @@
 				3196DAB920208CB700DDEFE6 /* IKit.h */,
 				3196DAB720208CB700DDEFE6 /* IKitUtil.h */,
 				3196DABA20208CB700DDEFE6 /* IKitUtil.m */,
-				3196DAB820208CB700DDEFE6 /* IMaskUIView.h */,
-				3196DABB20208CB700DDEFE6 /* IMaskUIView.m */,
 				3196DABC20208CB700DDEFE6 /* IView.h */,
 				3196DABE20208CB700DDEFE6 /* IView.m */,
 				3196DABD20208CB700DDEFE6 /* IViewInternal.h */,
@@ -316,7 +310,6 @@
 				3196DB1C2021680E00DDEFE6 /* INSXmlViewLoader.h in Headers */,
 				3196DADD20208DE200DDEFE6 /* ICssDecl.h in Headers */,
 				3196DAD820208DE200DDEFE6 /* ICssBlock.h in Headers */,
-				3196DAC020208CB700DDEFE6 /* IMaskUIView.h in Headers */,
 				3196DADC20208DE200DDEFE6 /* IFlowLayout.h in Headers */,
 				3196DB1D2021680E00DDEFE6 /* IViewLoader.h in Headers */,
 				3196DB3620216D5F00DDEFE6 /* UILabel.h in Headers */,
@@ -424,7 +417,6 @@
 				3196DB25202168B700DDEFE6 /* IResourceMananger.m in Sources */,
 				3196DAE320208DE200DDEFE6 /* ICssBlock.m in Sources */,
 				3196DAC620208CB700DDEFE6 /* IView.m in Sources */,
-				3196DAC320208CB700DDEFE6 /* IMaskUIView.m in Sources */,
 				3196DB2920216A6200DDEFE6 /* IViewLoader.m in Sources */,
 				3196DB3520216D5F00DDEFE6 /* UILabel.m in Sources */,
 				3196DB2820216A5E00DDEFE6 /* INSXmlViewLoader.m in Sources */,

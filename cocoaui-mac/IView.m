@@ -10,7 +10,6 @@
 #import "IViewInternal.h"
 #import "IFlowLayout.h"
 #import "IStyleInternal.h"
-#import "IMaskUIView.h"
 #import "IStyleSheet.h"
 #import "ICssRule.h"
 #import "IViewLoader.h"
@@ -27,7 +26,6 @@
 	BOOL _needRenderOnUnhighlight;
 }
 @property (nonatomic) BOOL need_layout;
-@property (nonatomic) IMaskUIView *maskView;
 @property (nonatomic) NSMutableArray *eventHandlers;
 @property NSView *backgroundView;
 @end
@@ -116,9 +114,6 @@
 	_backgroundView = [[NSView alloc] init];
 	_backgroundView.wantsLayer = YES;
 	[super addSubview:_backgroundView];
-	
-	_maskView = [[IMaskUIView alloc] init];
-	[super addSubview:_maskView];
 }
 
 - (void)viewDidMoveToSuperview{
@@ -219,9 +214,9 @@
 	sub.level = self.level + 1;
 	[_subs addObject:sub];
 	
-	[_maskView removeFromSuperview];
+//	[_maskView removeFromSuperview];
 	[super addSubview:sub];
-	[super addSubview:_maskView];
+//	[super addSubview:_maskView];
 
 	if(css){
 		[sub.style set:css];
@@ -351,7 +346,63 @@
 			_backgroundView.layer.contentsGravity = @"topLeft";
 			_backgroundView.layer.contentsScale = 1;
 		}
+		_backgroundView.hidden = NO;
+	}else{
+		_backgroundView.hidden = YES;
 	}
+	
+	[self drawBorder];
+}
+
+- (void)strokeBorder:(IStyleBorder *)border context:(CGContextRef)context{
+	if(border.type == IStyleBorderDashed){
+		CGFloat dashes[] = {border.width * 5, border.width * 5};
+		CGContextSetLineDash(context, 0, dashes, 2);
+	}
+	CGContextSetLineWidth(context, border.width);
+	[border.color set];
+	CGContextStrokePath(context);
+}
+
+- (void)drawBorder{
+	if(_style.borderDrawType == IStyleBorderDrawNone){
+		return;
+	}
+	//log_debug(@"%s %@", __func__, NSStringFromCGRect(self.frame));
+	CGFloat radius = _style.borderRadius;
+	CGFloat x1, y1, x2, y2;
+	CGRect rect = self.bounds;
+	x1 = rect.origin.x;
+	y1 = rect.origin.y;
+	x2 = x1 + rect.size.width;
+	y2 = y1 + rect.size.height;
+	NSEdgeInsets borderEdge = _style.borderEdge;
+	
+	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	// top
+	CGContextAddArc(context, radius, radius, radius-borderEdge.top/2, M_PI*5/4-20.0/180, M_PI*6/4, 0);
+	CGContextAddLineToPoint(context, x2 - radius, y1+borderEdge.top/2);
+	CGContextAddArc(context, x2 - radius, y1 + radius, radius-borderEdge.top/2, M_PI*6/4, M_PI*7/4, 0);
+	[self strokeBorder:_style.borderTop context:context];
+	
+	// right
+	CGContextAddArc(context, x2 - radius, y1 + radius, radius-borderEdge.right/2, M_PI*7/4-20.0/180, M_PI*8/4, 0);
+	CGContextAddLineToPoint(context, x2-borderEdge.right/2, y2 - radius);
+	CGContextAddArc(context, x2 - radius, y2 - radius, radius-borderEdge.right/2, M_PI*8/4, M_PI*9/4, 0);
+	[self strokeBorder:_style.borderRight context:context];
+	
+	// bottom
+	CGContextAddArc(context, x2 - radius, y2 - radius, radius-borderEdge.bottom/2, M_PI*9/4-20.0/180, M_PI*10/4, 0);
+	CGContextAddLineToPoint(context, x1 + radius, y2-borderEdge.bottom/2);
+	CGContextAddArc(context, x1 + radius, y2 - radius, radius-borderEdge.bottom/2, M_PI*10/4, M_PI*11/4, 0);
+	[self strokeBorder:_style.borderBottom context:context];
+	
+	// left
+	CGContextAddArc(context, x1 + radius, y2 - radius, radius-borderEdge.left/2, M_PI*11/4-20.0/180, M_PI*12/4, 0);
+	CGContextAddLineToPoint(context, x1+borderEdge.left/2, y1 + radius);
+	CGContextAddArc(context, x1 + radius, y1 + radius, radius-borderEdge.left/2, M_PI*12/4, M_PI*13/4, 0);
+	[self strokeBorder:_style.borderLeft context:context];
 }
 
 - (void)layout{
@@ -382,9 +433,9 @@
 //	log_debug(@"%d %s end %@", _seq, __FUNCTION__, NSStringFromCGRect(_style.rect));
 	
 	// 显示背景图, 必须要重新设置, 不然改变尺寸时背景不变动
-	if(self.layer.contents){
-		self.layer.contents = self.layer.contents;
-	}
+//	if(self.layer.contents){
+//		self.layer.contents = self.layer.contents;
+//	}
 	
 	[self updateFrame];
 	_need_layout = false;
@@ -408,14 +459,18 @@
 	self.hidden = _style.hidden;
 	self.needsDisplay = YES;
 
-	if(_style.borderDrawType == IStyleBorderDrawNone){
-		_maskView.hidden = YES;
-	}else{
-		_maskView.frame = self.bounds;
-		_maskView.needsDisplay = YES;
-	}
+//	if(_style.borderDrawType == IStyleBorderDrawNone){
+//		_maskView.hidden = YES;
+//	}else{
+//		_maskView.frame = self.bounds;
+//		_maskView.needsDisplay = YES;
+//	}
 	
-	_backgroundView.frame = self.bounds;
+	float x = _style.borderLeft.width;
+	float y = _style.borderTop.width;
+	float w = _style.width - _style.borderLeft.width - _style.borderRight.width;
+	float h = _style.height - _style.borderTop.width - _style.borderBottom.width;
+	_backgroundView.frame = CGRectMake(x, y, w, h);
 	_backgroundView.needsDisplay = YES;
 }
 

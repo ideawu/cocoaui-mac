@@ -233,6 +233,15 @@
 	return rect;
 }
 
+- (NSEdgeInsets)borderEdge{
+	UIEdgeInsets edge = {0, 0, 0, 0};
+	edge.top = self.borderTop.width;
+	edge.right = self.borderRight.width;
+	edge.bottom = self.borderBottom.width;
+	edge.left = self.borderLeft.width;
+	return edge;
+}
+
 /// inheritented properties
 
 - (IStyleTextAlign)inheritedTextAlign{
