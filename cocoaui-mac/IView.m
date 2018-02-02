@@ -447,9 +447,6 @@
 
 - (void)updateFrame{
 //	log_debug(@"%@ %s %@=>%@", self.name, __FUNCTION__, NSStringFromRect(self.frame), NSStringFromRect(_style.rect));
-//	if(!self.superview.isFlipped){
-//		frame.origin.y = self.superview.bounds.size.height - frame.origin.y - frame.size.height;
-//	}
 	if(self.isRootView){
 		//
 	}else{
@@ -458,13 +455,6 @@
 	
 	self.hidden = _style.hidden;
 	self.needsDisplay = YES;
-
-//	if(_style.borderDrawType == IStyleBorderDrawNone){
-//		_maskView.hidden = YES;
-//	}else{
-//		_maskView.frame = self.bounds;
-//		_maskView.needsDisplay = YES;
-//	}
 	
 	float x = _style.borderLeft.width;
 	float y = _style.borderTop.width;
