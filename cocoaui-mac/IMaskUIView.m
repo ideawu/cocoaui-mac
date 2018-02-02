@@ -24,6 +24,10 @@
 	return self;
 }
 
+- (BOOL)isFlipped{
+	return YES;
+}
+
 - (BOOL)wantsLayer{
 	return YES;
 }

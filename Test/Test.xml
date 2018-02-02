@@ -48,6 +48,6 @@
 
 <!--	<br/>-->
 <!---->
-<a class="a" style="float: center; valign: middle; border: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</a>
+<a class="a" style="float: center; valign: middle; border-bottom: 11px solid #00f; text-align: center; background:#ccc;">ABCDEFG 12345</a>
 
 </div>
