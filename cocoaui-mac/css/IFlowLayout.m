@@ -167,8 +167,8 @@
 //		[view layout];
 	}
 	// TODO:
-	[view layout];
-	[view setNeedsLayout:NO];
+//	[view layout];
+//	[view setNeedsLayout:NO];
 
 	while(1){
 		if(!style.resizeNone){
@@ -177,8 +177,10 @@
 			}
 			if(style.w > 0){
 				//log_trace(@"%@ before w=%f, h=%f, _x=%f, x2=%f", view.name, style.w, style.h, _x, _x2);
-				//log_trace(@"%s %d call layout %@", __func__, __LINE__, view.name);
+//				log_trace(@"%s %d call layout %@", __func__, __LINE__, view.name);
+//				[view setNeedsLayout:YES];
 				[view layout];
+//				[view setNeedsLayout:NO];
 				//log_trace(@"%@ after w=%f, h=%f, _x=%f, x2=%f", view.name, style.w, style.h, _x, _x2);
 				if(style.w == 0){
 					return;
@@ -199,10 +201,10 @@
 		box.y = _y;
 	}else if(style.valignType == IStyleValignBottom){
 		box.y = _y2 - box.h;
-		box.y = MAX(box.y, 0);
+		box.y = MAX(box.y, _y);
 	}else if(style.valignType == IStyleValignMiddle){
 		box.y = ((_y2 - _y) - box.h)/2 + _y;
-		box.y = MAX(box.y, 0);
+		box.y = MAX(box.y, _y);
 	}
 
 	if(style.floatCenter){

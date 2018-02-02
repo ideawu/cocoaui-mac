@@ -122,27 +122,33 @@
 	[super addSubview:_maskView];
 }
 
-- (void)viewWillStartLiveResize{
+- (void)viewDidMoveToSuperview{
 	if(self.isRootView){
 		[[NSNotificationCenter defaultCenter] addObserver:self
 												 selector:@selector(reshape)
 													 name:NSViewFrameDidChangeNotification
 												   object:self.superview];
 	}
-}
-
-- (void)viewDidEndLiveResize{
-	if(self.isRootView){
+	if(!self.superview){
 		[[NSNotificationCenter defaultCenter] removeObserver:self];
-		[self reshape];
 	}
 }
 
-- (void)reshape{
-	if(self.isRootView){
-		[self setNeedsLayout:YES];
-	}
-}
+//- (void)viewWillStartLiveResize{
+//	if(self.isRootView){
+//		[[NSNotificationCenter defaultCenter] addObserver:self
+//												 selector:@selector(reshape)
+//													 name:NSViewFrameDidChangeNotification
+//												   object:self.superview];
+//	}
+//}
+//
+//- (void)viewDidEndLiveResize{
+//	if(self.isRootView){
+//		[[NSNotificationCenter defaultCenter] removeObserver:self];
+//		[self reshape];
+//	}
+//}
 
 - (BOOL)wantsLayer{
 	return YES;
@@ -301,13 +307,19 @@
 	return ((!_subs || _subs.count == 0) && _contentView);
 }
 
+- (void)reshape{
+	if(self.isRootView){
+		[self setNeedsLayout:YES];
+	}
+}
+
 - (void)setNeedsLayout:(BOOL)needsLayout{
 	if(needsLayout){
 		_need_layout = true;
 		
-		if(self.isPrimativeView){
-			super.needsLayout = YES;
-		}
+//		if(self.isPrimativeView){
+//			super.needsLayout = YES;
+//		}
 		if(self.parent){
 			[self.parent setNeedsLayout:YES];
 		}else{
@@ -325,7 +337,9 @@
 //	self.clipsToBounds = _style.overflowHidden;
 	
 	self.layer.opacity = _style.opacity;
-	self.layer.backgroundColor = [_style.backgroundColor CGColor];
+	if(self.layer.backgroundColor != [_style.backgroundColor CGColor]){
+		self.layer.backgroundColor = [_style.backgroundColor CGColor];
+	}
 	self.layer.cornerRadius = _style.borderRadius;
 
 	if(_style.backgroundImage){
