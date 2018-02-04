@@ -3,6 +3,7 @@
 //
 
 #include "Layouter.h"
+#include "View.h"
 
 namespace cui{
 	
@@ -26,12 +27,21 @@ namespace cui{
 		if(!view->needsLayout()){
 			return;
 		}
-		view->layout()->outerBox(Rect(0, 0, maxWidth, maxHeight));
+		
+		Layout *layout = view->layout();
+		
+		layout->outerBox(Rect(0, 0, maxWidth, maxHeight));
+		if(layout->ratioWidth() > 0){
+			layout->width(maxWidth * layout->ratioWidth());
+		}
+		if(layout->ratioHeight() > 0){
+			layout->height(maxHeight * layout->ratioHeight());
+		}
+		
 		if(view->subviews()->size() > 0){
 			layoutSubviews(view);
 			resizeView(view);
 		}
-		view->sizeToFit();
 	}
 
 	void Layouter::resizeView(View *view){
@@ -57,10 +67,10 @@ namespace cui{
 		Point offset = Point(border.left + padding.left, border.top + padding.top);
 
 		Rect inner = layout->innerBox();
-		_maxWidth = inner.width;
-		_maxHeight = inner.height;
+		_maxInnerWidth = inner.width;
+		_maxInnerHeight = inner.height;
 		_xLeft = 0;
-		_xRight = _maxWidth;
+		_xRight = _maxInnerWidth;
 		_y = 0;
 		_contentWidth = 0;
 		_contentHeight = 0;
@@ -68,8 +78,11 @@ namespace cui{
 		std::list<View *> *subs = view->subviews();
 		for(std::list<View *>::iterator it = subs->begin(); it != subs->end(); it++){
 			View *sub = *it;
-			layoutView(sub, _maxWidth, _maxHeight);
-			placeView(sub);
+			
+			Layouter layouter;
+			layouter.layoutView(sub, _maxInnerWidth, _maxInnerHeight);
+			
+			placeSubview(sub);
 			
 			// content相对frame偏移
 			Rect frame = sub->layout()->frame();
@@ -79,7 +92,7 @@ namespace cui{
 		}
 	}
 
-	void Layouter::placeView(View *view){
+	void Layouter::placeSubview(View *view){
 		Layout *layout = view->layout();
 
 		if(layout->displayNone()){
@@ -103,8 +116,8 @@ namespace cui{
 			}
 		}
 		
-		Rect inBox = this->findBoxForView(view);
-		this->putViewInBox(view, inBox);
+		Rect inBox = this->findBoxForSubview(view);
+		this->putSubviewInBox(view, inBox);
 		
 		// 计算节点占用的空间，和 float/clear 相关
 		Rect space = view->layout()->outerBox();
@@ -120,7 +133,7 @@ namespace cui{
 			space.x = 0;
 		}
 		if(layout->clearRight()){
-			space.width = _maxWidth - space.x;
+			space.width = _maxInnerWidth - space.x;
 		}
 		
 		if(layout->floatLeft()){
@@ -133,11 +146,11 @@ namespace cui{
 		_contentHeight = fmax(_contentHeight, space.y2());
 	}
 
-	Rect Layouter::findBoxForView(View *view){
+	Rect Layouter::findBoxForSubview(View *view){
 		float width = view->layout()->outerBox().width;
 		while(1){
 			float w = _xRight - _xLeft;
-			float h = fmax(_maxHeight, _y) - _y;
+			float h = fmax(_maxInnerHeight, _y) - _y;
 			Rect box = Rect(_xLeft, _y, w, h);
 			
 			if(box.width >= width){
@@ -151,6 +164,29 @@ namespace cui{
 				}
 			}
 		}
+	}
+
+	void Layouter::putSubviewInBox(View *view, const Rect &inBox){
+		Layout *layout = view->layout();
+		Rect box = layout->outerBox();
+		
+		if(layout->floatLeft()){
+			box.x = inBox.x;
+		}else if(layout->floatRight()){
+			box.x = inBox.x2() - box.width;
+		}else{
+			box.x = (inBox.width - box.width)/2 + inBox.x;
+		}
+
+		if(layout->valignType() == ValignTop){
+			box.y = inBox.y;
+		}else if(layout->valignType() == ValignBottom){
+			box.y = inBox.y2() - box.height;
+		}else if(layout->valignType() == ValignMiddle){
+			box.y = (inBox.height - box.height)/2 + inBox.y;
+		}
+
+		layout->outerBox(box);
 	}
 
 	void Layouter::newLine(){
@@ -180,7 +216,7 @@ namespace cui{
 			}
 		}
 	}
-
+	
 	void Layouter::popLeft(){
 		Rect box = _leftRects->back();
 		_leftRects->pop_back();
@@ -215,27 +251,4 @@ namespace cui{
 		}
 	}
 
-	void Layouter::putViewInBox(View *view, const Rect &inBox){
-		Layout *layout = view->layout();
-		Rect box = layout->outerBox();
-		
-		if(layout->floatLeft()){
-			box.x = inBox.x;
-		}else if(layout->floatRight()){
-			box.x = inBox.x2() - box.width;
-		}else{
-			box.x = (inBox.width - box.width)/2 + inBox.x;
-		}
-
-		if(layout->valignType() == ValignTop){
-			box.y = inBox.y;
-		}else if(layout->valignType() == ValignBottom){
-			box.y = inBox.y2() - box.height;
-		}else if(layout->valignType() == ValignMiddle){
-			box.y = (inBox.height - box.height)/2 + inBox.y;
-		}
-
-		layout->outerBox(box);
-	}
-	
 }; // end namespace

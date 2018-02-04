@@ -38,6 +38,18 @@ namespace cui{
 		return _frame;
 	}
 	
+	void Layout::frame(const Rect &frame){
+		_frame = frame;
+	}
+	
+	void Layout::width(float width){
+		_frame.width = width;
+	}
+	
+	void Layout::height(float height){
+		_frame.height = height;
+	}
+
 	float Layout::ratioWidth() const{
 		return _ratioWidth;
 	}
@@ -66,6 +78,14 @@ namespace cui{
 		_frame = rect.subEdge(_margin);
 	}
 	
+	void Layout::outerWidth(float width){
+		_frame.width = width - _margin.left - _margin.right;
+	}
+
+	void Layout::outerHeight(float height){
+		_frame.height = height - _margin.top - _margin.bottom;
+	}
+
 
 	float Layout::borderRadius() const{
 		return _borderRadius;
@@ -77,7 +97,7 @@ namespace cui{
 
 	
 	DisplayType Layout::displayType() const{
-		return _displayType;
+		return (DisplayType)_displayType;
 	}
 
 	void Layout::displayType(DisplayType type){
@@ -85,7 +105,7 @@ namespace cui{
 	}
 
 	FloatType Layout::floatType() const{
-		return _floatType;
+		return (FloatType)_floatType;
 	}
 
 	void Layout::floatType(FloatType type){
@@ -93,7 +113,7 @@ namespace cui{
 	}
 
 	ValignType Layout::valignType() const{
-		return _valignType;
+		return (ValignType)_valignType;
 	}
 	
 	void Layout::valignType(ValignType type){
@@ -101,7 +121,7 @@ namespace cui{
 	}
 
 	ClearType Layout::clearType() const{
-		return _clearType;
+		return (ClearType)_clearType;
 	}
 
 	void Layout::clearType(ClearType type){
@@ -109,7 +129,7 @@ namespace cui{
 	}
 
 	ResizeType Layout::resizeType() const{
-		return _resizeType;
+		return (ResizeType)_resizeType;
 	}
 
 	void Layout::resizeType(ResizeType type){

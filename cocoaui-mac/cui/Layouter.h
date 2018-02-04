@@ -5,10 +5,12 @@
 #ifndef Layouter_hpp
 #define Layouter_hpp
 
-#include "View.h"
 #include <vector>
+#include "types.h"
 
 namespace cui{
+	class View;
+	
 	class Layouter
 	{
 	public:
@@ -19,7 +21,7 @@ namespace cui{
 		void layoutView(View *view, float maxWidth, float maxHeight);
 		
 	private:
-		float _maxWidth, _maxHeight;
+		float _maxInnerWidth, _maxInnerHeight;
 		float _xLeft, _xRight;
 		float _y;
 		float _contentWidth, _contentHeight;
@@ -30,9 +32,9 @@ namespace cui{
 		void resizeView(View *view);
 		void layoutSubviews(View *view);
 		
-		void placeView(View *view);
-		Rect findBoxForView(View *view);
-		void putViewInBox(View *view, const Rect &inBox);
+		void placeSubview(View *view);
+		Rect findBoxForSubview(View *view);
+		void putSubviewInBox(View *view, const Rect &inBox);
 		
 		void newLine();
 		void newLine(bool isLeft);

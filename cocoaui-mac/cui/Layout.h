@@ -23,6 +23,10 @@ namespace cui{
 		Edge border() const;
 
 		Rect frame() const;
+		void frame(const Rect &frame);
+		void width(float width);
+		void height(float height);
+
 		float ratioWidth() const;
 		float ratioHeight() const;
 		
@@ -31,6 +35,8 @@ namespace cui{
 		void innerHeight(float height);
 		Rect outerBox() const;
 		void outerBox(const Rect &rect);
+		void outerWidth(float width);
+		void outerHeight(float height);
 
 		float borderRadius() const;
 		void borderRadius(float borderRadius);
@@ -50,14 +56,12 @@ namespace cui{
 		bool resizeHeight() const;
 		bool displayNone() const;
 		
-		// TODO:
-		void frame(const Rect &frame);
-		bool clearLeft() const;
-		bool clearRight() const;
-		bool clearBoth() const;
-		bool floatLeft() const;
-		bool floatRight() const;
-		bool floatCenter() const;
+		bool clearLeft() const{return _clearType==ClearLeft;}
+		bool clearRight() const{return _clearType==ClearRight;}
+		bool clearBoth() const{return _clearType==ClearBoth;}
+		bool floatLeft() const{return _floatType==FloatLeft;}
+		bool floatRight() const{return _floatType==FloatRight;}
+		bool floatCenter() const{return _floatType==FloatCenter;}
 
 	private:
 		Rect _frame;
@@ -69,11 +73,12 @@ namespace cui{
 		float _ratioWidth;
 		float _ratioHeight;
 		
-		DisplayType _displayType;
-		FloatType _floatType;
-		ValignType _valignType;
-		ClearType _clearType;
-		ResizeType _resizeType;
+		// 位运算报错，所以用int
+		int _displayType;
+		int _floatType;
+		int _valignType;
+		int _clearType;
+		int _resizeType;
 	};
 }; // end namespace
 

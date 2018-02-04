@@ -14,10 +14,9 @@ namespace cui{
 	public:
 		View();
 		~View();
-		
-		void sizeToFit();
 
 		Layout* layout();
+		
 		bool needsLayout() const;
 		void needsLayout(bool needsLayout);
 		
