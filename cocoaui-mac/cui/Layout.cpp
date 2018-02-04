@@ -8,6 +8,10 @@ namespace cui{
 
 	Layout::Layout(){
 		_borderRadius = 0;
+		_ratioWidth = 0;
+		_ratioHeight = 0;
+		
+		_displayType = DisplayAuto;
 		_floatType = FloatLeft;
 		_valignType = ValignTop;
 		_clearType = ClearNone;
@@ -32,6 +36,14 @@ namespace cui{
 
 	Rect Layout::frame() const{
 		return _frame;
+	}
+	
+	float Layout::ratioWidth() const{
+		return _ratioWidth;
+	}
+
+	float Layout::ratioHeight() const{
+		return _ratioHeight;
 	}
 
 	Rect Layout::innerBox() const{
@@ -61,6 +73,15 @@ namespace cui{
 
 	void Layout::borderRadius(float borderRadius){
 		_borderRadius = borderRadius;
+	}
+
+	
+	DisplayType Layout::displayType() const{
+		return _displayType;
+	}
+
+	void Layout::displayType(DisplayType type){
+		_displayType = type;
 	}
 
 	FloatType Layout::floatType() const{
@@ -101,6 +122,10 @@ namespace cui{
 
 	bool Layout::resizeHeight() const{
 		return _resizeType & ResizeHeight;
+	}
+
+	bool Layout::displayNone() const{
+		return _displayType == DisplayNone;
 	}
 
 

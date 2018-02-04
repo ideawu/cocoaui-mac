@@ -5,6 +5,20 @@
 #ifndef s_h
 #define s_h
 
+class Point{
+public:
+	float x, y;
+	
+	Point(){
+		x = y = 0;
+	}
+	
+	Point(float x, float y){
+		this->x = x;
+		this->y = y;
+	}
+};
+
 class Edge{
 public:
 	float top, bottom, left, right;
@@ -27,6 +41,14 @@ public:
 		this->y = y;
 		this->width = width;
 		this->height = height;
+	}
+	
+	float x2() const{
+		return x + width;
+	}
+	
+	float y2() const{
+		return y + height;
 	}
 	
 	Rect addEdge(const Edge &edge) const{

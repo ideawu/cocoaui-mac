@@ -23,6 +23,9 @@ namespace cui{
 		Edge border() const;
 
 		Rect frame() const;
+		float ratioWidth() const;
+		float ratioHeight() const;
+		
 		Rect innerBox() const;
 		void innerWidth(float width);
 		void innerHeight(float height);
@@ -31,6 +34,9 @@ namespace cui{
 
 		float borderRadius() const;
 		void borderRadius(float borderRadius);
+		
+		DisplayType displayType() const;
+		void displayType(DisplayType type);
 		FloatType floatType() const;
 		void floatType(FloatType type);
 		ValignType valignType() const;
@@ -42,13 +48,28 @@ namespace cui{
 
 		bool resizeWidth() const;
 		bool resizeHeight() const;
+		bool displayNone() const;
+		
+		// TODO:
+		void frame(const Rect &frame);
+		bool clearLeft() const;
+		bool clearRight() const;
+		bool clearBoth() const;
+		bool floatLeft() const;
+		bool floatRight() const;
+		bool floatCenter() const;
 
 	private:
 		Rect _frame;
 		Edge _padding;
 		Edge _border;
 		Edge _margin;
+		
 		float _borderRadius;
+		float _ratioWidth;
+		float _ratioHeight;
+		
+		DisplayType _displayType;
 		FloatType _floatType;
 		ValignType _valignType;
 		ClearType _clearType;
