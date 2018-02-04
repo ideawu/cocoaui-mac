@@ -1,4 +1,4 @@
-<div style="background: #9333; width: 100%; border-top: 3px solid #6ccc">
+<div style="background: #9333; width: 100%; height:100; valign: middle; border-top: 3px solid #6ccc">
 	<style>
 		#icons{
 		float: center;
