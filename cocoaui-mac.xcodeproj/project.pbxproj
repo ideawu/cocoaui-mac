@@ -8,11 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		31126D3E2022F87100FB07E7 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 31126D3D2022F87100FB07E7 /* images */; };
-		31596494202619B100FB0679 /* Layout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31596492202619B100FB0679 /* Layout.cpp */; };
 		31596495202619B100FB0679 /* Layout.h in Headers */ = {isa = PBXBuildFile; fileRef = 31596493202619B100FB0679 /* Layout.h */; };
-		31596498202619E900FB0679 /* Layouter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 31596496202619E900FB0679 /* Layouter.cpp */; };
 		31596499202619E900FB0679 /* Layouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 31596497202619E900FB0679 /* Layouter.h */; };
-		3159649C20261A6D00FB0679 /* View.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3159649A20261A6D00FB0679 /* View.cpp */; };
 		3159649D20261A6D00FB0679 /* View.h in Headers */ = {isa = PBXBuildFile; fileRef = 3159649B20261A6D00FB0679 /* View.h */; };
 		315964A220261E5B00FB0679 /* log.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 315964A020261E5A00FB0679 /* log.cpp */; };
 		315964A320261E5B00FB0679 /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = 315964A120261E5B00FB0679 /* log.h */; };
@@ -466,13 +463,10 @@
 				3196DB2920216A6200DDEFE6 /* IViewLoader.m in Sources */,
 				3196DB3520216D5F00DDEFE6 /* UILabel.m in Sources */,
 				3196DB2820216A5E00DDEFE6 /* INSXmlViewLoader.m in Sources */,
-				31596498202619E900FB0679 /* Layouter.cpp in Sources */,
 				3196DB2720216A5E00DDEFE6 /* IDTHTMLViewLoader.m in Sources */,
 				3196DADA20208DE200DDEFE6 /* IStyle.m in Sources */,
 				3196DADB20208DE200DDEFE6 /* IStyleSheet.m in Sources */,
 				3196DB2620216A5E00DDEFE6 /* DTHTMLParser.m in Sources */,
-				3159649C20261A6D00FB0679 /* View.cpp in Sources */,
-				31596494202619B100FB0679 /* Layout.cpp in Sources */,
 				3196DB3920216DA800DDEFE6 /* ILabel.m in Sources */,
 				3196DAC220208CB700DDEFE6 /* IKitUtil.m in Sources */,
 				3196DAD920208DE200DDEFE6 /* ICssRule.m in Sources */,

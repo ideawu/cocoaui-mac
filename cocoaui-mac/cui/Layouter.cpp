@@ -79,6 +79,7 @@ namespace cui{
 		for(std::list<View *>::iterator it = subs->begin(); it != subs->end(); it++){
 			View *sub = *it;
 			
+			// 附加到 View 身上
 			Layouter layouter;
 			layouter.layoutView(sub, _maxInnerWidth, _maxInnerHeight);
 			
