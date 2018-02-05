@@ -408,8 +408,6 @@
 - (void)layout{
 	[super layout];
 	if(self.isRootView){
-		_style.size = self.superview.bounds.size;
-		self.frame = self.superview.bounds;
 	}
 	
 //	log_debug(@"%@ layout begin %@, #%d", self.name, NSStringFromCGRect(_style.rect), self.level);
@@ -449,6 +447,7 @@
 //	log_debug(@"%@ %s %@=>%@", self.name, __FUNCTION__, NSStringFromRect(self.frame), NSStringFromRect(_style.rect));
 	if(self.isRootView){
 		//
+		self.frame = _style.rect;
 	}else{
 		self.frame = _style.rect;
 	}

@@ -67,14 +67,19 @@
 - (void)layout{
 //	log_debug(@"%@", _view);
 	if(_view.isRootView){
-		if(_style.ratioWidth > 0){
-			_style.w = _style.ratioWidth * _view.superview.frame.size.width - _style.margin.left - _style.margin.right;
-		}
-		if(_style.ratioHeight > 0){
-			_style.h = _style.ratioHeight * _view.superview.frame.size.height - _style.margin.top - _style.margin.bottom;
-		}
 		_style.x = _style.left + _style.margin.left;
 		_style.y = _style.top + _style.margin.top;
+		_style.size = _view.superview.bounds.size;
+	}
+	if(_view.isRootView){
+//		if(_style.ratioWidth > 0){
+//			_style.w = _style.ratioWidth * _view.superview.frame.size.width - _style.margin.left - _style.margin.right;
+//		}
+//		if(_style.ratioHeight > 0){
+//			_style.h = _style.ratioHeight * _view.superview.frame.size.height - _style.margin.top - _style.margin.bottom;
+//		}
+//		_style.x = _style.left + _style.margin.left;
+//		_style.y = _style.top + _style.margin.top;
 	}
 
 	if(_view.isPrimativeView){
