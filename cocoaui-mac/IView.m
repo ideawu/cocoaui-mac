@@ -100,7 +100,9 @@
 	}
 	self.backgroundColor = [UIColor clearColor];
 	//self.userInteractionEnabled = NO;
-	
+
+	self.wantsLayer = YES;
+
 	_style = [[IStyle alloc] init];
 	_style.view = self;
 	_style.tagName = @"view";
@@ -325,6 +327,11 @@
 }
 
 - (void)drawRect:(CGRect)rect{
+	if(self.needsLayout){
+		self.needsLayout = NO;
+		[self layout];
+	}
+
 //	log_debug(@"%@ %s %@", self.name, __FUNCTION__, NSStringFromRect(rect));
 	[super drawRect:rect];
 
@@ -343,8 +350,14 @@
 			_backgroundView.layer.backgroundColor = [UIColor colorWithPatternImage:img].CGColor;
 		}else{
 			_backgroundView.layer.contents = img;
-			_backgroundView.layer.contentsGravity = @"topLeft";
-			_backgroundView.layer.contentsScale = 1;
+			// 在某些版本报错：Misuse of NSImage and CALayer. contentsGravity is topLeft. It should be one of resize, resizeAspect, or resizeAspectFill.
+//			_backgroundView.layer.contentsGravity = kCAGravityTopLeft;
+			float w = _backgroundView.frame.size.width/img.size.width;
+			float h = _backgroundView.frame.size.height/img.size.height;
+			_backgroundView.layer.contentsRect = CGRectMake(0, 0, w, h);
+			_backgroundView.layer.geometryFlipped = NO;
+			// 此函数没有antialias
+//			[img drawInRect:CGRectMake(0, 0, img.size.width, img.size.height)];
 		}
 		_backgroundView.hidden = NO;
 	}else{

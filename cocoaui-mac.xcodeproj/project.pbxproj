@@ -75,6 +75,12 @@
 		0846199E202DDBBB00741AF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0846199D202DDBBB00741AF2 /* main.m */; };
 		084619A0202DDBBB00741AF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0846199F202DDBBB00741AF2 /* Images.xcassets */; };
 		084619A3202DDBBB00741AF2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084619A1202DDBBB00741AF2 /* MainMenu.xib */; };
+		084619B8202DDC6100741AF2 /* alex.png in Resources */ = {isa = PBXBuildFile; fileRef = 084619B6202DDC6100741AF2 /* alex.png */; };
+		084619B9202DDC6100741AF2 /* TestWindow.xml in Resources */ = {isa = PBXBuildFile; fileRef = 084619B7202DDC6100741AF2 /* TestWindow.xml */; };
+		084619BD202DDCC000741AF2 /* TestWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 084619BB202DDCC000741AF2 /* TestWindow.m */; };
+		084619BE202DDCC000741AF2 /* TestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 084619BC202DDCC000741AF2 /* TestWindow.xib */; };
+		084619BF202DDCEF00741AF2 /* libcocoaui-mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08E5CB85202DD6AF0032E723 /* libcocoaui-mac.a */; };
+		084619C1202DDCF900741AF2 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 084619C0202DDCF900741AF2 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -161,6 +167,12 @@
 		0846199D202DDBBB00741AF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0846199F202DDBBB00741AF2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		084619A2202DDBBB00741AF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		084619B6202DDC6100741AF2 /* alex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alex.png; sourceTree = "<group>"; };
+		084619B7202DDC6100741AF2 /* TestWindow.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TestWindow.xml; sourceTree = "<group>"; };
+		084619BA202DDCC000741AF2 /* TestWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWindow.h; sourceTree = "<group>"; };
+		084619BB202DDCC000741AF2 /* TestWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWindow.m; sourceTree = "<group>"; };
+		084619BC202DDCC000741AF2 /* TestWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestWindow.xib; sourceTree = "<group>"; };
+		084619C0202DDCF900741AF2 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		08E5CB85202DD6AF0032E723 /* libcocoaui-mac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libcocoaui-mac.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -169,6 +181,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084619C1202DDCF900741AF2 /* libxml2.dylib in Frameworks */,
+				084619BF202DDCEF00741AF2 /* libcocoaui-mac.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +280,10 @@
 			children = (
 				0846199A202DDBBB00741AF2 /* AppDelegate.h */,
 				0846199B202DDBBB00741AF2 /* AppDelegate.m */,
+				084619BA202DDCC000741AF2 /* TestWindow.h */,
+				084619BB202DDCC000741AF2 /* TestWindow.m */,
+				084619BC202DDCC000741AF2 /* TestWindow.xib */,
+				084619B7202DDC6100741AF2 /* TestWindow.xml */,
 				08461998202DDBBB00741AF2 /* Supporting Files */,
 			);
 			path = Test;
@@ -274,6 +292,7 @@
 		08461998202DDBBB00741AF2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				084619B6202DDC6100741AF2 /* alex.png */,
 				084619A1202DDBBB00741AF2 /* MainMenu.xib */,
 				0846199F202DDBBB00741AF2 /* Images.xcassets */,
 				08461999202DDBBB00741AF2 /* Info.plist */,
@@ -288,6 +307,7 @@
 				08E5CB87202DD6AF0032E723 /* cocoaui-mac */,
 				08461997202DDBBB00741AF2 /* Test */,
 				08E5CB86202DD6AF0032E723 /* Products */,
+				084619C0202DDCF900741AF2 /* libxml2.dylib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -435,8 +455,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084619BE202DDCC000741AF2 /* TestWindow.xib in Resources */,
 				084619A0202DDBBB00741AF2 /* Images.xcassets in Resources */,
 				084619A3202DDBBB00741AF2 /* MainMenu.xib in Resources */,
+				084619B8202DDC6100741AF2 /* alex.png in Resources */,
+				084619B9202DDC6100741AF2 /* TestWindow.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +472,7 @@
 			files = (
 				0846199E202DDBBB00741AF2 /* main.m in Sources */,
 				0846199C202DDBBB00741AF2 /* AppDelegate.m in Sources */,
+				084619BD202DDCC000741AF2 /* TestWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +530,7 @@
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -518,6 +543,7 @@
 				INFOPLIST_FILE = Test/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
