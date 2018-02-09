@@ -392,7 +392,8 @@
 	NSEdgeInsets borderEdge = _style.borderEdge;
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	
+
+	// TODO: border 太大时有bug
 	// top
 	CGContextAddArc(context, radius, radius, radius-borderEdge.top/2, M_PI*5/4-20.0/180, M_PI*6/4, 0);
 	CGContextAddLineToPoint(context, x2 - radius, y1+borderEdge.top/2);
