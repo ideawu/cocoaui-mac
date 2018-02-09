@@ -393,6 +393,11 @@ static NSMutableDictionary *_tagClassTable = nil;
 			view.vid = id_;
 			[_viewsById setObject:view forKey:id_];
 		}
+
+		NSString *title = [attributeDict objectForKey:@"title"];
+		if(title){
+			view.toolTip = title;
+		}
 	}else{
 		[parse_stack addObject:@""];
 	}

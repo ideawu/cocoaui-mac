@@ -27,9 +27,9 @@
 - (void)windowDidLoad {
 	[super windowDidLoad];
 
-	IView *view = [IView namedView:@"TestWindow"];
+	IView *view = [IView namedView:@"Test"];
 	[self.window.contentView addSubview:view];
-
+	
 	_controlBar = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
 	_controlBar.wantsLayer = YES;
 	_controlBar.layer = [[CALayer alloc] init];
@@ -45,7 +45,7 @@
 	}else{
 		[self.window.contentView addSubview:_controlBar];
 		[_controlBar setAlphaValue:0];
-
+		
 		[NSAnimationContext beginGrouping];
 		[[NSAnimationContext currentContext] setDuration:1.0];
 		[_controlBar.animator setAlphaValue:1];
@@ -56,9 +56,9 @@
 		flash.fromValue = [NSNumber numberWithFloat:0.0];
 		flash.toValue = [NSNumber numberWithFloat:1.0];
 		flash.duration = 1.0;
-
+		
 		[_controlBar.layer addAnimation:flash forKey:@"flashAnimation"];
-
+		
 		log_debug(@"%@", _controlBar.layer.animationKeys);
 	}
 }

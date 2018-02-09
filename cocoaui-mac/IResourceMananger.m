@@ -175,7 +175,9 @@ static IResourceMananger *_sharedMananger;
 		}
 	}else if(![src isEqual:@""]){
 		if([src characterAtIndex:0] != '/'){
-			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
+//			img = [UIImage imageNamed:src]; // imageNamed 内部有 cache
+			src = [IKitUtil buildPath:[NSBundle mainBundle].resourcePath src:src];
+			img = [[UIImage alloc] initWithContentsOfFile:src];
 		}else{
 			img = [[UIImage alloc] initWithContentsOfFile:src];
 		}

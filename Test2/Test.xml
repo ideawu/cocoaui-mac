@@ -1,4 +1,5 @@
-<div style="background: #9333; width: 100%; height:100; valign: middle; border-top: 3px solid #6ccc">
+<div>
+	<div style="background: #9333; width: 100%; height: auto; valign: middle; border-top: 3px solid #6ccc">
 	<style>
 		#icons{
 		float: center;
@@ -45,5 +46,6 @@
 <!--		<img src="images/toolbar-18/fillsize.png" />-->
 <!--	</div>-->
 
+</div>
 </div>
 
