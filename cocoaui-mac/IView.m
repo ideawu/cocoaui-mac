@@ -558,7 +558,7 @@
 	BOOL prevInside = YES;
 	NSPoint point;
 	while (1) {
-		event = [[self window] nextEventMatchingMask:(NSEventMaskLeftMouseDragged | NSEventMaskLeftMouseUp)];
+		event = [[self window] nextEventMatchingMask:(kCGEventLeftMouseDragged | kCGEventLeftMouseUp)];
 		point = [self convertPoint:[event locationInWindow] fromView:nil];
 
 		BOOL inside = [self mouse:point inRect:self.bounds];
@@ -569,7 +569,7 @@
 		}
 		prevInside = inside;
 		
-		if(event.type == NSEventTypeLeftMouseUp){
+		if(event.type == kCGEventLeftMouseUp){
 			if(!inside){
 				[self delState:IViewStateDown];
 			}

@@ -270,13 +270,13 @@
 - (NSTextAlignment)inheritedNSTextAlign{
 	switch (self.inheritedTextAlign) {
 		case IStyleTextAlignCenter:
-			return NSTextAlignmentCenter;
+			return NSCenterTextAlignment;
 		case IStyleTextAlignRight:
-			return NSTextAlignmentRight;
+			return NSRightTextAlignment;
 		case IStyleTextAlignJustify:
-			return NSTextAlignmentJustified;
+			return NSJustifiedTextAlignment;
 		default:
-			return NSTextAlignmentLeft;
+			return NSLeftTextAlignment;
 	}
 }
 

@@ -70,7 +70,7 @@
 		self.textColor       = self.defaultTextColor;
 		self.backgroundColor = self.defaultBackgroundColor;
 		self.numberOfLines   = 1;
-		self.textAlignment   = NSTextAlignmentLeft;
+		self.textAlignment   = kCTTextAlignmentLeft;
 		self.lineBreakMode   = NSLineBreakByTruncatingTail;
 	}
 
@@ -92,7 +92,7 @@
 		self.textColor       = [coder decodeObjectForKey:@"textColor"];
 		self.backgroundColor = [coder decodeObjectForKey:@"backgroundColor"];
 		self.numberOfLines   = [coder containsValueForKey:@"numberOfLines"] ? [[coder decodeObjectForKey:@"numberOfLines"] integerValue]         : 1;
-		self.textAlignment   = [coder containsValueForKey:@"numberOfLines"] ? [[coder decodeObjectForKey:@"textAlignment"] unsignedIntegerValue] : NSTextAlignmentLeft;
+		self.textAlignment   = [coder containsValueForKey:@"numberOfLines"] ? [[coder decodeObjectForKey:@"textAlignment"] unsignedIntegerValue] : kCTTextAlignmentLeft;
 		self.lineBreakMode   = [coder containsValueForKey:@"numberOfLines"] ? [[coder decodeObjectForKey:@"lineBreakMode"] unsignedIntegerValue] : NSLineBreakByTruncatingTail;
 
 #if CGFLOAT_IS_DOUBLE
@@ -150,7 +150,7 @@
 	NSAttributedString* attributedText = nil;
 
 	[self.backgroundColor setFill];
-	NSRectFillUsingOperation(bounds, NSCompositingOperationSourceOver);
+	NSRectFillUsingOperation(bounds, NSCompositeSourceOver);
 
 	if ((text = self.text)) {
 		[text drawWithRect:drawRect options:self.drawingOptions attributes:@{
