@@ -32,60 +32,28 @@
 		frame.size.width = ((NSView *)self.window.contentView).bounds.size.width;
 //		frame = ((NSView *)self.window.contentView).bounds;
 		_controlBar.frame = frame;
+		log_debug(@"%@", NSStringFromCGRect(frame));
 	}
 }
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
+	[self.window.contentView setWantsLayer:YES];
 
 //	IView *view = [IView namedView:@"TestWindow"];
 //	[self.window.contentView addSubview:view];
-
-//	_controlBar = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//	_controlBar.wantsLayer = YES;
-//	_controlBar.layer = [[CALayer alloc] init];
-//	_controlBar.layer.backgroundColor = [NSColor redColor].CGColor;
 
 	_controlBar = [[ControlBar alloc] init];
 	[_controlBar bindHandler:^(ControlBarEvent event, IView *view) {
 		log_debug(@"%d", event);
 	}];
 	[self.window.contentView addSubview:_controlBar];
-
-//	[_controlBar.contentView setNeedsDisplay:YES];
-//	[_controlBar.contentView setNeedsLayout:YES];
-
-	log_debug(@"%@", self.window.contentView);
-
+	
+	[self windowDidResize:nil];
 }
 
 - (void)keyDown:(NSEvent *)event{
 	[_controlBar show];
-	return;
-	if(_controlBar.superview){
-		[NSAnimationContext beginGrouping];
-		[[NSAnimationContext currentContext] setDuration:1.0];
-		[_controlBar.animator removeFromSuperview];
-		[NSAnimationContext endGrouping];
-	}else{
-		[self.window.contentView addSubview:_controlBar];
-		[_controlBar setAlphaValue:0];
-
-		[NSAnimationContext beginGrouping];
-		[[NSAnimationContext currentContext] setDuration:1.0];
-		[_controlBar.animator setAlphaValue:1];
-		[NSAnimationContext endGrouping];
-		log_debug(@"%@", _controlBar.layer.animationKeys);
-
-		CABasicAnimation *flash = [CABasicAnimation animationWithKeyPath:@"opacity"];
-		flash.fromValue = [NSNumber numberWithFloat:0.0];
-		flash.toValue = [NSNumber numberWithFloat:1.0];
-		flash.duration = 1.0;
-
-		[_controlBar.layer addAnimation:flash forKey:@"flashAnimation"];
-
-		log_debug(@"%@", _controlBar.layer.animationKeys);
-	}
 }
 
 @end

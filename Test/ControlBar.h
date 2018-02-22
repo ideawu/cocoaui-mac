@@ -25,7 +25,7 @@ typedef enum{
 	ControlBarEventFillSize,
 }ControlBarEvent;
 
-@interface ControlBar : IView
+@interface ControlBar : NSView
 
 @property (readonly) IView *contentView;
 @property (readonly) ILabel *textLabel;
@@ -38,3 +38,4 @@ typedef enum{
 - (void)setPlaying:(BOOL)isPlaying;
 
 @end
+
