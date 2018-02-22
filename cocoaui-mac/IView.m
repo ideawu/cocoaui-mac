@@ -326,6 +326,15 @@
 	}
 }
 
+- (void)setNeedsDisplay:(BOOL)needsDisplay{
+	if(needsDisplay){
+		if(self.parent){
+			[self.parent setNeedsDisplay:YES];
+		}
+	}
+	[super setNeedsDisplay:needsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect{
 	if(self.needsLayout){
 		self.needsLayout = NO;

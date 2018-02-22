@@ -7,8 +7,7 @@
 //
 
 #import "TestWindow.h"
-#import "IView.h"
-#import "ILabel.h"
+#import "IKit.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TestWindow ()<NSWindowDelegate>
@@ -33,6 +32,12 @@
 
 	_iview = [IView namedView:@"TestWindow"];
 	[self.window.contentView addSubview:_iview];
+
+	IImage *img = (IImage *)[_iview getViewById:@"abc"];
+	[img bindEvent:IEventClick handler:^(IEventType event, IView *view) {
+		log_debug(@"%@", img.src);
+		img.src = @"images/toolbar-18/minus.png";
+	}];
 
 	[self windowDidResize:nil];
 }

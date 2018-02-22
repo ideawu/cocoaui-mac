@@ -43,6 +43,8 @@
 	[[IResourceMananger sharedMananger] loadImageSrc:src callback:^(UIImage *_img) {
 		self.image = _img;
 	}];
+	[self setNeedsLayout:YES];
+	[self setNeedsDisplay:YES];
 }
 
 - (UIImage *)image{
@@ -55,8 +57,8 @@
 	[self.imageView setImage:_image];
 	self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
 	self.imageView.needsDisplay = YES;
-	self.needsLayout = YES;
-//	[self setNeedsDisplay:YES];
+	[self setNeedsLayout:YES];
+	[self setNeedsDisplay:YES];
 }
 
 - (UIImageView *)imageView{

@@ -18,10 +18,10 @@
 		}
 		#current_index{
 		margin: 2px 6px;
-		width: 40;
+		width: 60;
 		text-align: center;
 		valign: middle;
-		font-size: 20;
+		font-size: 16;
 		color: #cc3;
 		}
 	</style>
@@ -36,7 +36,7 @@
 		<img src="images/toolbar-18/flip_v.png" />
 		<img src="images/toolbar-18/rotate_left.png" />
 		<img src="images/toolbar-18/rotate_right.png" />
-		<img src="images/toolbar-18/prev.png" />
+		<img id="abc" src="images/toolbar-18/prev.png" />
 		<span id="current_index">1/1</span>
 		<img src="images/toolbar-18/next.png" />
 		<img src="images/toolbar-18/minus.png" />
