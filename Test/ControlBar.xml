@@ -1,0 +1,51 @@
+<!--<div>-->
+	<div style="background: #9333; width: 100%; height: auto; valign: bottom; border-top: 3px solid #6ccc">
+		<style>
+			#icons{
+			float: center;
+			valign: bottom;
+			height: 34;
+			padding: 2;
+			}
+			#icons img, #icons div{
+			margin: 0 2;
+			padding: 4;
+			height: 100%;
+			border-radius: 3;
+			}
+			#icons img:hover{
+			background: #000;
+			}
+			#current_index{
+			margin: 2px 6px;
+			width: 40;
+			text-align: center;
+			valign: middle;
+			font-size: 20;
+			color: #cc3;
+			}
+		</style>
+
+		<!--	<div style="width: 120; height: 200; border-top: 10 solid #000; border-radius: 10; background: #ff3 url(alex.png) no-repeat"></div>-->
+		<!--	-->
+		<!--	<div style="width: 320; height: 200; border: 10 solid #000; border-radius: 10; background: #ff3 url(alex.png) no-repeat"></div>-->
+
+		<div id="icons">
+			<div></div>
+			<img src="images/toolbar-18/flip_h.png" />
+			<img src="images/toolbar-18/flip_v.png" />
+			<img src="images/toolbar-18/rotate_left.png" />
+			<img src="images/toolbar-18/rotate_right.png" />
+			<img src="images/toolbar-18/prev.png" />
+			<span id="current_index">1/1</span>
+			<img src="images/toolbar-18/next.png" />
+			<img src="images/toolbar-18/minus.png" />
+			<img src="images/toolbar-18/plus.png" />
+			<img src="images/toolbar-18/bestsize.png" />
+			<img src="images/toolbar-18/actualsize.png" />
+			<img src="images/toolbar-18/fillsize.png" />
+		</div>
+		
+	</div>
+<!--</div>-->
+

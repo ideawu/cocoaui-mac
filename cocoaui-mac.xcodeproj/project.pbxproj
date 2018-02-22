@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083EF87B203F3461009960EC /* ControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 083EF879203F3461009960EC /* ControlBar.m */; };
+		083EF87C203F3461009960EC /* ControlBar.xml in Resources */ = {isa = PBXBuildFile; fileRef = 083EF87A203F3461009960EC /* ControlBar.xml */; };
+		083EF87F203F34A9009960EC /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 083EF87E203F34A9009960EC /* File.m */; };
+		083EF89D203F36BE009960EC /* images in Resources */ = {isa = PBXBuildFile; fileRef = 083EF89C203F36BE009960EC /* images */; };
 		08461951202DDA1500741AF2 /* UILabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0846191F202DDA1500741AF2 /* UILabel.h */; };
 		08461952202DDA1500741AF2 /* UILabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 08461920202DDA1500741AF2 /* UILabel.m */; };
 		08461953202DDA1500741AF2 /* ICssBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 08461922202DDA1500741AF2 /* ICssBlock.h */; };
@@ -115,6 +119,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		083EF878203F3461009960EC /* ControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlBar.h; sourceTree = "<group>"; };
+		083EF879203F3461009960EC /* ControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlBar.m; sourceTree = "<group>"; };
+		083EF87A203F3461009960EC /* ControlBar.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ControlBar.xml; sourceTree = "<group>"; };
+		083EF87D203F34A9009960EC /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		083EF87E203F34A9009960EC /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		083EF89C203F36BE009960EC /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		0846191F202DDA1500741AF2 /* UILabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabel.h; sourceTree = "<group>"; };
 		08461920202DDA1500741AF2 /* UILabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabel.m; sourceTree = "<group>"; };
 		08461922202DDA1500741AF2 /* ICssBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICssBlock.h; sourceTree = "<group>"; };
@@ -280,10 +290,16 @@
 			children = (
 				0846199A202DDBBB00741AF2 /* AppDelegate.h */,
 				0846199B202DDBBB00741AF2 /* AppDelegate.m */,
+				083EF87D203F34A9009960EC /* File.h */,
+				083EF87E203F34A9009960EC /* File.m */,
+				083EF878203F3461009960EC /* ControlBar.h */,
+				083EF879203F3461009960EC /* ControlBar.m */,
+				083EF87A203F3461009960EC /* ControlBar.xml */,
 				084619BA202DDCC000741AF2 /* TestWindow.h */,
 				084619BB202DDCC000741AF2 /* TestWindow.m */,
 				084619BC202DDCC000741AF2 /* TestWindow.xib */,
 				084619B7202DDC6100741AF2 /* TestWindow.xml */,
+				083EF89C203F36BE009960EC /* images */,
 				08461998202DDBBB00741AF2 /* Supporting Files */,
 			);
 			path = Test;
@@ -456,9 +472,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				084619BE202DDCC000741AF2 /* TestWindow.xib in Resources */,
+				083EF87C203F3461009960EC /* ControlBar.xml in Resources */,
 				084619A0202DDBBB00741AF2 /* Images.xcassets in Resources */,
 				084619A3202DDBBB00741AF2 /* MainMenu.xib in Resources */,
 				084619B8202DDC6100741AF2 /* alex.png in Resources */,
+				083EF89D203F36BE009960EC /* images in Resources */,
 				084619B9202DDC6100741AF2 /* TestWindow.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,7 +488,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083EF87F203F34A9009960EC /* File.m in Sources */,
 				0846199E202DDBBB00741AF2 /* main.m in Sources */,
+				083EF87B203F3461009960EC /* ControlBar.m in Sources */,
 				0846199C202DDBBB00741AF2 /* AppDelegate.m in Sources */,
 				084619BD202DDCC000741AF2 /* TestWindow.m in Sources */,
 			);
@@ -586,7 +606,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -627,7 +647,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/include/libxml2,
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

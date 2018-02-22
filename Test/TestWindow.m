@@ -10,9 +10,10 @@
 #import "IView.h"
 #import "ILabel.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ControlBar.h"
 
 @interface TestWindow ()<NSWindowDelegate>
-@property NSView *controlBar;
+@property ControlBar *controlBar;
 
 @end
 
@@ -24,19 +25,43 @@
 	return self;
 }
 
+- (void)windowDidResize:(NSNotification *)notification{
+	log_debug(@"");
+	{
+		CGRect frame = _controlBar.frame;
+		frame.size.width = ((NSView *)self.window.contentView).bounds.size.width;
+//		frame = ((NSView *)self.window.contentView).bounds;
+		_controlBar.frame = frame;
+	}
+}
+
 - (void)windowDidLoad {
 	[super windowDidLoad];
 
-	IView *view = [IView namedView:@"TestWindow"];
-	[self.window.contentView addSubview:view];
+//	IView *view = [IView namedView:@"TestWindow"];
+//	[self.window.contentView addSubview:view];
 
-	_controlBar = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-	_controlBar.wantsLayer = YES;
-	_controlBar.layer = [[CALayer alloc] init];
-	_controlBar.layer.backgroundColor = [NSColor redColor].CGColor;
+//	_controlBar = [[NSView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//	_controlBar.wantsLayer = YES;
+//	_controlBar.layer = [[CALayer alloc] init];
+//	_controlBar.layer.backgroundColor = [NSColor redColor].CGColor;
+
+	_controlBar = [[ControlBar alloc] init];
+	[_controlBar bindHandler:^(ControlBarEvent event, IView *view) {
+		log_debug(@"%d", event);
+	}];
+	[self.window.contentView addSubview:_controlBar];
+
+//	[_controlBar.contentView setNeedsDisplay:YES];
+//	[_controlBar.contentView setNeedsLayout:YES];
+
+	log_debug(@"%@", self.window.contentView);
+
 }
 
 - (void)keyDown:(NSEvent *)event{
+	[_controlBar show];
+	return;
 	if(_controlBar.superview){
 		[NSAnimationContext beginGrouping];
 		[[NSAnimationContext currentContext] setDuration:1.0];
