@@ -10,11 +10,9 @@
 #import "IView.h"
 #import "ILabel.h"
 #import <QuartzCore/QuartzCore.h>
-#import "ControlBar.h"
 
 @interface TestWindow ()<NSWindowDelegate>
-@property ControlBar *controlBar;
-
+@property IView *iview;
 @end
 
 @implementation TestWindow
@@ -26,34 +24,22 @@
 }
 
 - (void)windowDidResize:(NSNotification *)notification{
-	log_debug(@"");
-	{
-		CGRect frame = _controlBar.frame;
-		frame.size.width = ((NSView *)self.window.contentView).bounds.size.width;
-//		frame = ((NSView *)self.window.contentView).bounds;
-		_controlBar.frame = frame;
-		log_debug(@"%@", NSStringFromCGRect(frame));
-	}
+	_iview.frame = [(NSView *)self.window.contentView bounds];
+	[_iview setNeedsDisplay:YES];
+	[_iview setNeedsLayout:YES];
 }
 
 - (void)windowDidLoad {
 	[super windowDidLoad];
 	[self.window.contentView setWantsLayer:YES];
 
-//	IView *view = [IView namedView:@"TestWindow"];
-//	[self.window.contentView addSubview:view];
+	_iview = [IView namedView:@"TestWindow"];
+	[self.window.contentView addSubview:_iview];
 
-	_controlBar = [[ControlBar alloc] init];
-	[_controlBar bindHandler:^(ControlBarEvent event, IView *view) {
-		log_debug(@"%d", event);
-	}];
-	[self.window.contentView addSubview:_controlBar];
-	
 	[self windowDidResize:nil];
 }
 
 - (void)keyDown:(NSEvent *)event{
-	[_controlBar show];
 }
 
 @end
