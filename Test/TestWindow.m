@@ -25,8 +25,6 @@
 
 - (void)windowDidResize:(NSNotification *)notification{
 	_iview.frame = [(NSView *)self.window.contentView bounds];
-	[_iview setNeedsDisplay:YES];
-	[_iview setNeedsLayout:YES];
 }
 
 - (void)windowDidLoad {
