@@ -327,7 +327,7 @@
 }
 
 - (void)setNeedsDisplay:(BOOL)needsDisplay{
-	if(needsDisplay){
+	if(needsDisplay && NSFoundationVersionNumber <= NSFoundationVersionNumber10_11_Max){
 		if(self.parent){
 			[self.parent setNeedsDisplay:YES];
 		}
