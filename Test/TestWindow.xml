@@ -31,18 +31,18 @@
 <!--	<div style="width: 320; height: 200; border: 10 solid #000; border-radius: 10; background: #ff3 url(alex.png) no-repeat"></div>-->
 
 	<div id="icons">
-		<div></div>
-		<img src="images/toolbar-18/flip_h.png" />
-		<img src="images/toolbar-18/flip_v.png" />
-		<img src="images/toolbar-18/rotate_left.png" />
-		<img src="images/toolbar-18/rotate_right.png" />
-		<img id="abc" src="images/toolbar-18/prev.png" />
-		<span id="current_index">1/1</span>
-		<img src="images/toolbar-18/next.png" />
-		<img src="images/toolbar-18/minus.png" />
-		<img src="images/toolbar-18/plus.png" />
-		<img src="images/toolbar-18/bestsize.png" />
-		<img src="images/toolbar-18/actualsize.png" />
+<!--		<div></div>-->
+<!--		<img src="images/toolbar-18/flip_h.png" />-->
+<!--		<img src="images/toolbar-18/flip_v.png" />-->
+<!--		<img src="images/toolbar-18/rotate_left.png" />-->
+<!--		<img src="images/toolbar-18/rotate_right.png" />-->
+<!--		<img id="abc" src="images/toolbar-18/prev.png" />-->
+<!--		<span id="current_index">1/1</span>-->
+<!--		<img src="images/toolbar-18/next.png" />-->
+<!--		<img src="images/toolbar-18/minus.png" />-->
+<!--		<img src="images/toolbar-18/plus.png" />-->
+<!--		<img src="images/toolbar-18/bestsize.png" />-->
+<!--		<img src="images/toolbar-18/actualsize.png" />-->
 		<img src="images/toolbar-18/fillsize.png" />
 	</div>
 

@@ -520,19 +520,26 @@
 //			break;
 //	}
 //	if(name){
-//		if([self.name rangeOfString:@"a"].length != 0){
+////		if([self.name rangeOfString:@"a"].length != 0){
 //			log_debug(@"%@ event: %@", self.name, name);
-//		}
+////		}
 //	}
 	
+	BOOL shouldBubbleUp = YES;
 	if(_eventHandlers){
 		void (^handler)(IEventType, IView *);
 		for(NSArray *arr in _eventHandlers){
 			NSNumber *num = arr.firstObject;
 			handler = arr.lastObject;
 			if(event == num.intValue){
+				shouldBubbleUp = NO;
 				handler(event, self);
 			}
+		}
+	}
+	if(shouldBubbleUp && (event & IEventClick)){
+		if([self.superview isKindOfClass:IView.class]){
+			[(IView *)self.superview fireEvent:event];
 		}
 	}
 
