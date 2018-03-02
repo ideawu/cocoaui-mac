@@ -34,7 +34,7 @@
 	[self.window.contentView addSubview:_iview];
 
 	IImage *img = (IImage *)[_iview getViewById:@"abc"];
-	[img bindEvent:IEventClick handler:^(IEventType event, IView *view) {
+	[_iview bindEvent:IEventClick handler:^(IEventType event, IView *view) {
 		log_debug(@"%@", img.src);
 		img.src = @"images/toolbar-18/minus.png";
 	}];

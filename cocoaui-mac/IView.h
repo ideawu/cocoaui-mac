@@ -61,6 +61,7 @@ typedef enum{
 - (void)hide;
 - (void)toggle;
 
+// alias of addEvent
 - (void)bindEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler;
 /**
  * event can be combined by | operator.
