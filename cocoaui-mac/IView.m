@@ -489,15 +489,15 @@
 
 #pragma mark - Events
 
-- (void)bindEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler{
-	[self addEvent:event handler:handler];
+- (void)bindEvent:(IEventType)events handler:(void (^)(IEventType event, IView *view))handler{
+	[self addEvent:events handler:handler];
 }
 
-- (void)addEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler{
+- (void)addEvent:(IEventType)events handler:(void (^)(IEventType event, IView *view))handler{
 	if(!_eventHandlers){
 		_eventHandlers = [[NSMutableArray alloc] init];
 	}
-	[_eventHandlers addObject:@[@(event), handler]];
+	[_eventHandlers addObject:@[@(events), handler]];
 }
 
 - (void)fireEvent:(IEventType)event{
@@ -531,7 +531,7 @@
 		for(NSArray *arr in _eventHandlers){
 			NSNumber *num = arr.firstObject;
 			handler = arr.lastObject;
-			if(event == num.intValue){
+			if(event & num.intValue){
 				shouldBubbleUp = NO;
 				handler(event, self);
 			}

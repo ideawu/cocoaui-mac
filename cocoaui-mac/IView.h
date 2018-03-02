@@ -61,16 +61,16 @@ typedef enum{
 - (void)hide;
 - (void)toggle;
 
-// alias of addEvent
-- (void)bindEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler;
 /**
  * event can be combined by | operator.
  */
-- (void)addEvent:(IEventType)event handler:(void (^)(IEventType event, IView *view))handler;
+- (void)addEvent:(IEventType)events handler:(void (^)(IEventType event, IView *view))handler;
 /**
  * event can not be combined.
  */
 - (void)fireEvent:(IEventType)event;
+// alias of addEvent
+- (void)bindEvent:(IEventType)events handler:(void (^)(IEventType event, IView *view))handler;
 
 /**
  * 一般不需要调用本方法, 自定义控件重写本方法.
