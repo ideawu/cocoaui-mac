@@ -144,7 +144,11 @@ static CGFloat colorVal(NSString *hex){
 			src = [basePath stringByAppendingString:src];
 		}
 	}else{
-		src = [basePath stringByAppendingPathComponent:src];
+		if([src characterAtIndex:0] == '/'){
+			src = [[NSBundle mainBundle] pathForResource:src ofType:@""];
+		}else{
+			src = [basePath stringByAppendingPathComponent:src];
+		}
 	}
 	return src;
 }
