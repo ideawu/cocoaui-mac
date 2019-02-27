@@ -88,7 +88,7 @@
 		0846197E202DDB4E00741AF2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = build;
+			dstPath = IKit;
 			dstSubfolderSpec = 7;
 			files = (
 				0846197F202DDB7700741AF2 /* UILabel.h in CopyFiles */,
